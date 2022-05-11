@@ -6,10 +6,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class FarmersRegistrationController {
@@ -19,7 +18,7 @@ public class FarmersRegistrationController {
     @Autowired
     private MainService mainService;
 
-    @GetMapping(value = "farmerRegistration")
+    @GetMapping(value = "/farmerRegistration")
     public String home(){
         return "FarmerRegistration";
     }
@@ -76,9 +75,12 @@ public class FarmersRegistrationController {
                     System.out.println("Adhaar Id Recieved. " + adhaarId);
                     Aadhar aadhar = new Aadhar();
                     aadhar.setAadharId(adhaarId);
-                    farmer.setAadhar(aadhar);
-                    if (mainService.saveFarmer(farmer) != null){
-                        System.out.println("Farmer Saved Successfully.");
+                    if (mainService.saveAadhar(aadhar) != null){
+                        System.out.println("Aadhar ID Saved Successfully.");
+                        farmer.setAadhar(aadhar);
+                        if (mainService.saveFarmer(farmer) != null){
+                            System.out.println("Farmer Saved Successfully.");
+                        }
                     }
                 }
                 else {
@@ -92,9 +94,55 @@ public class FarmersRegistrationController {
         }catch (Exception e){
             e.printStackTrace();
         }
+        return "FarmerRegistrationUniqueId";
+    }
 
+    @GetMapping(value = "/searchFarmer")
+    public String searchFarmer(RedirectAttributes redirectAttributes){
+        redirectAttributes.addFlashAttribute("data", "NoData");
+        return "FarmerRegistrationUniqueId";
+    }
 
-        return null;
+    @PostMapping(value = "/searchFarmer")
+    public String searchFarmer(@RequestParam("uniqueId")String uniqueId,
+                               @RequestParam("ackId")String ackId,
+                               @RequestParam("janadhaarId")String janadhaarId,
+                               @RequestParam("adhaarId")String adhaarId,
+                               Model model, RedirectAttributes redirectAttributes){
+        System.out.println(uniqueId + ackId + janadhaarId + adhaarId);
+        try {
+            Farmer farmer;
+            if (uniqueId.equalsIgnoreCase("Ack Id")){
+                System.out.println("Ack Id Recieved. " + ackId);
+                farmer = mainService.findFarmerByAckId(ackId);
+                System.out.println(farmer);
+                model.addAttribute("farmer", farmer);
+                redirectAttributes.addFlashAttribute("data", "Data");
+            }
+            else if (uniqueId.equalsIgnoreCase("Janadhaar Id")){
+                System.out.println("Janadhaar Id Recieved. " + janadhaarId);
+                farmer = mainService.findFarmerByJanadhaar(janadhaarId);
+                System.out.println(farmer);
+                model.addAttribute("farmer", farmer);
+                redirectAttributes.addFlashAttribute("data", "Data");
+            }
+            else if (uniqueId.equalsIgnoreCase("Adhaar Id")){
+                System.out.println("Adhaar Id Recieved. " + adhaarId);
+                farmer = mainService.findFarmerByAadhar(adhaarId);
+                System.out.println(farmer);
+                model.addAttribute("farmer", farmer);
+                redirectAttributes.addFlashAttribute("data", "Data");
+                redirectAttributes.addFlashAttribute("farmer", farmer);
+                return "redirect:/searchFarmer";
+            }
+            else {
+                redirectAttributes.addFlashAttribute("data", "Data");
+                System.out.println("Something Went Wrong!!");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return "FarmerRegistrationUniqueId";
     }
 
 }

@@ -23,26 +23,41 @@ public class MainServiceImpl implements MainService {
 
     @Override
     public Bank saveBank(Bank bank) {
-        return bankRepository.save(bank);
+        return bankRepository.saveAndFlush(bank);
     }
 
     @Override
     public Acknowledge saveAcknowledge(Acknowledge acknowledge) {
-        return acknowledgeRepository.save(acknowledge);
+        return acknowledgeRepository.saveAndFlush(acknowledge);
     }
 
     @Override
     public JanAdhaar saveJanAdhaar(JanAdhaar janAdhaar) {
-        return janadhaarRepository.save(janAdhaar);
+        return janadhaarRepository.saveAndFlush(janAdhaar);
     }
 
     @Override
     public Aadhar saveAadhar(Aadhar aadhar) {
-        return aadharRepository.save(aadhar);
+        return aadharRepository.saveAndFlush(aadhar);
     }
 
     @Override
     public Farmer saveFarmer(Farmer farmer) {
-        return farmerRepository.save(farmer);
+        return farmerRepository.saveAndFlush(farmer);
+    }
+
+    @Override
+    public Farmer findFarmerByAckId(String ackId) {
+        return farmerRepository.findFarmerByAcknowledge_AcknowledgeId(ackId);
+    }
+
+    @Override
+    public Farmer findFarmerByJanadhaar(String janadharId) {
+        return farmerRepository.findFarmerByJanAdhaar_JanadhaarId(janadharId);
+    }
+
+    @Override
+    public Farmer findFarmerByAadhar(String aadharId) {
+        return farmerRepository.findFarmerByAadhar_AadharId(aadharId);
     }
 }

@@ -8,4 +8,7 @@ public interface MainService {
     JanAdhaar saveJanAdhaar(JanAdhaar janAdhaar);
     Aadhar saveAadhar(Aadhar aadhar);
     Farmer saveFarmer(Farmer farmer);
+    Farmer findFarmerByAckId(String ackId);
+    Farmer findFarmerByJanadhaar(String janadharId);
+    Farmer findFarmerByAadhar(String aadharId);
 }
