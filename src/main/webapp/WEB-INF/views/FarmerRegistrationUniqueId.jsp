@@ -17,7 +17,7 @@
 <body style="background-color: aliceblue">
 
 
-<h4 class="text-center" style="margin-top: 1rem;">Farmer Registration Using Unique ID</h4>
+<h4 class="text-center" style="margin-top: 1rem; color: green">Farmer Registration Using Unique ID</h4>
 
 <form action="/searchFarmer" method="post" modeAttribute="farmer" id="farmerRegistrationForm">
 
@@ -52,29 +52,29 @@
 
 </form>
 
-
 <c:choose>
     <c:when test="${data == 'Data'}">
+        <h5 style="margin: 3rem; color: green" class="card-title">Family Details</h5>
         <div class="row" style="margin: 3rem;">
-            <table id="dynamicTable" border = "1" align="center" class="table table-striped table-bordered" cellspacing="0">
+            <table id="dynamicTable" border = "1" align="center" class="table" cellspacing="0">
                 <thead>
                 <tr>
-                    <td><input type="checkbox"></td>
-                    <th>Name</th>
-                    <th>Father's Name</th>
-                    <th>Age</th>
-                    <th>Gender</th>
-                    <th>Relation</th>
-                    <th>Bank Name</th>
-                    <th>IFSC Code</th>
-                    <th>Account Number</th>
-                    <th>Mobile Number</th>
+                    <td scope="col"><input type="checkbox"></td>
+                    <th scope="col">Name</th>
+                    <th scope="col"> Father's Name</th>
+                    <th scope="col"Age</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Relation</th>
+                    <th scope="col">Bank Name</th>
+                    <th scope="col">IFSC Code</th>
+                    <th scope="col">Account Number</th>
+                    <th scope="col">Mobile Number</th>
                 </tr>
                 </thead>
 
                 <tbody style="background-color: aliceblue">
                 <tr style="background-color: aliceblue">
-                    <td ><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
                     <td>${farmer.name}</td>
                     <td>${farmer.fathersName}</td>
                     <td>${farmer.age}</td>
