@@ -76,7 +76,7 @@
             <c:otherwise>
                 <div class="col-md-3" id="id3">
                     <label for="adhaarId" class="form-label">Adhaar ID</label>
-                    <input type="text" class="form-control" id="adhaarId" style="background-color: aliceblue" name="adhaarId" value="${adharId}" placeholder="Enter Adhaar ID" required>
+                    <input type="text" class="form-control" id="adhaarId" style="background-color: aliceblue" name="adhaarId" onblur="validateAadhar(this.value)" value="${adharId}" placeholder="Enter Adhaar ID" required>
                 </div>
             </c:otherwise>
         </c:choose>
@@ -679,6 +679,29 @@
         console.log(frmdata);
         console.log("Serialize : " + frmdata.serialize());
         $('#farmerFamilyDetails').show();
+    }
+
+</script>
+<script>
+    function validateAadhar(aadhar){
+        console.log("Inside Validate Aadhar---------------->>" + aadhar);
+        $.ajax({
+            url: "/validateAadhar",
+            type: "GET",
+            data: {
+                "aadhar" : aadhar,
+            },
+            success: function (data){
+                console.log(data);
+                if (data != "Valid"){
+                    alert("Not A Valid Aadhar!")
+                    return false;
+                }
+            },
+            error: function (error){
+                console.log(error);
+            }
+        })
     }
 </script>
 </body>

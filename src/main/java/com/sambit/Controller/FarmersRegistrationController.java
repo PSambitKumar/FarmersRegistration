@@ -2,6 +2,7 @@ package com.sambit.Controller;
 
 import com.sambit.Model.*;
 import com.sambit.Service.MainService;
+import com.sambit.Validation.AadharValidation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -227,6 +228,40 @@ public class FarmersRegistrationController {
             System.out.println("Something Error Occurred.");
         }
         return relation;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    Validation of Aadhar Called By Ajax Method
+    @ResponseBody
+    @GetMapping("/validateAadhar")
+    public String validateAadhar(@RequestParam("aadhar") String aadhar){
+        System.out.println("Inside Validate Aadhar----------------------->>");
+        System.out.println(aadhar);
+        String result = null;
+        if (AadharValidation.validateAadhar(aadhar)){
+            System.out.println("Valid Aadhar.");
+            result = "Valid";
+        }
+        else {
+            System.out.println("Not A Valid Aadhar!");
+            result = "Invalid";
+        }
+        return result;
     }
 
 }
