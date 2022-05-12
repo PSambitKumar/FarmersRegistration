@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.List;
+
 @Controller
 public class FarmersRegistrationController {
 
@@ -61,7 +63,7 @@ public class FarmersRegistrationController {
                 }
                 else if (uniqueId.equalsIgnoreCase("Janadhaar Id")){
                     System.out.println("Janadhaar Id Recieved. " + janadhaarId);
-                    JanAdhaar janAdhaar = new JanAdhaar();
+                    Janadhaar janAdhaar = new Janadhaar();
                     janAdhaar.setJanadhaarId(janadhaarId);
                     if (mainService.saveJanAdhaar(janAdhaar) != null){
                         System.out.println("Janadhaar ID Saved Successfully.");
@@ -133,6 +135,8 @@ public class FarmersRegistrationController {
                 model.addAttribute("farmer", farmer);
                 redirectAttributes.addFlashAttribute("data", "Data");
                 redirectAttributes.addFlashAttribute("farmer", farmer);
+                redirectAttributes.addFlashAttribute("adhar", "Adhaar Id");
+                redirectAttributes.addFlashAttribute("adharId", adhaarId);
                 return "redirect:/searchFarmer";
             }
             else {
@@ -145,5 +149,84 @@ public class FarmersRegistrationController {
         return "FarmerRegistrationUniqueId";
     }
 
+    @ResponseBody
+    @GetMapping("/addRelation")
+    public String addRelation(@RequestParam("fid") int fId, @RequestParam("relation")String relation){
+        System.out.println("Inside Add Relation----------->>");
+        System.out.println(fId + ", " + relation);
+        return null;
+    }
+
+    @ResponseBody
+    @GetMapping(value = "/saveBrother")
+    public Relation saveBrother(Relation relation,
+                              @RequestParam("bankName")String bankName,
+                              @RequestParam("ifscCode")String ifscCode,
+                              @RequestParam("accountNumber")String accountNumber,
+                              @RequestParam("uniqueId")String uniqueId,
+                              @RequestParam("ackId")String ackId,
+                              @RequestParam("janadhaarId")String janadhaarId,
+                              @RequestParam("adhaarId")String adhaarId,
+                              @RequestParam("mobile")String mobile,
+                              @RequestParam(value = "relation", required = false)String relation1,
+                              @RequestParam("fId")int fId) {
+        System.out.println("Inside Save Brother------------>>");
+        System.out.println(relation);
+        System.out.println(bankName + ifscCode + accountNumber + uniqueId + ackId + janadhaarId + adhaarId + mobile + relation1 + fId);
+        String result = null;
+        try {
+            Farmer farmer = mainService.findFarmerById(fId);
+            List<Relation> relationList = farmer.getRelationList();
+            Bank bank = new Bank();
+            bank.setBankName(bankName);
+            bank.setAccountNumber(accountNumber);
+            bank.setIfscCode(ifscCode);
+            bank.setMobileNumber(mobile);
+            mainService.saveBank(bank);
+            relation.setBank(bank);
+            relation.setRelationName(relation1);
+            relation.setMobile(mobile);
+            if (uniqueId.equalsIgnoreCase("Adhaar Id")){
+                Aadhar aadhar = new Aadhar();
+                aadhar.setAadharId(adhaarId);
+                mainService.saveAadhar(aadhar);
+                relation.setAadhar(aadhar);
+                relationList.add(relation);
+                farmer.setRelationList(relationList);
+                if (mainService.saveFarmer(farmer) != null) {
+                    System.out.println("Relation Added to Farmer's Data by Aadhar ID.");
+                    result = "Saved";
+                }
+            }
+            else if (uniqueId.equalsIgnoreCase("Ack Id")) {
+                Acknowledge acknowledge = new Acknowledge();
+                acknowledge.setAcknowledgeId(ackId);
+                mainService.saveAcknowledge(acknowledge);
+                relation.setAcknowledge(acknowledge);
+                relationList.add(relation);
+                farmer.setRelationList(relationList);
+                logger.info(farmer.toString());
+                if (mainService.saveFarmer(farmer) != null) {
+                    System.out.println("Relation Added to Farmer's Data by Ack ID.");
+                    result = "Saved";
+                }
+            } else if (uniqueId.equalsIgnoreCase("Janadhaar Id")) {
+                Janadhaar janAdhaar = new Janadhaar();
+                janAdhaar.setJanadhaarId(janadhaarId);
+                mainService.saveJanAdhaar(janAdhaar);
+                relation.setJanAdhaar(janAdhaar);
+                relationList.add(relation);
+                farmer.setRelationList(relationList);
+                if (mainService.saveFarmer(farmer) != null) {
+                    System.out.println("Relation Added to Farmer's Data by Janadhaar ID.");
+                    result = "Saved";
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Something Error Occurred.");
+        }
+        return relation;
+    }
 
 }

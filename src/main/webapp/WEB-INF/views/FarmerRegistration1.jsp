@@ -51,7 +51,7 @@
             <div class="col-md-3">
                 <label for="relation" class="form-label">Relation</label>
                 <select class="form-select" aria-label="Default select example" style="background-color: aliceblue" id="relation" name="relation">
-                    <option selected value="Self">Self</option>
+                    <option selected value="Self" disabled>Self</option>
                 </select>
             </div>
             <div class="col-md-3">
@@ -103,11 +103,11 @@
             </div>
             <div class="col-md-3">
                 <label for="addrelation" class="form-label">Add Relation</label>
-                <select class="form-select" aria-label="Default select example" style="background-color: aliceblue" id="addrelation" name="addrelation">
-                    <option selected>Select</option>
-                    <option value="Brother">Brother</option>
-                    <option value="Sister">Sister</option>
-                </select>
+            <select class="form-select" aria-label="Default select example" style="background-color: aliceblue" id="addrelation" name="addrelation">
+                <option selected>Select</option>
+                <option value="Brother">Brother</option>
+                <option value="Sister">Sister</option>
+            </select>
             </div>
         </div>
 

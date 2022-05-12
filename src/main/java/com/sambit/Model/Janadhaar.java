@@ -1,12 +1,10 @@
 package com.sambit.Model;
 
-import org.springframework.web.bind.annotation.GetMapping;
-
 import javax.persistence.*;
 
 @Entity
 @Table
-public class JanAdhaar {
+public class Janadhaar {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)

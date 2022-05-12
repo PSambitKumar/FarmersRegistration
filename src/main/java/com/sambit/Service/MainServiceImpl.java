@@ -2,7 +2,6 @@ package com.sambit.Service;
 
 import com.sambit.Model.*;
 import com.sambit.Repository.*;
-import org.jboss.jandex.Main;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +31,7 @@ public class MainServiceImpl implements MainService {
     }
 
     @Override
-    public JanAdhaar saveJanAdhaar(JanAdhaar janAdhaar) {
+    public Janadhaar saveJanAdhaar(Janadhaar janAdhaar) {
         return janadhaarRepository.saveAndFlush(janAdhaar);
     }
 
@@ -59,5 +58,10 @@ public class MainServiceImpl implements MainService {
     @Override
     public Farmer findFarmerByAadhar(String aadharId) {
         return farmerRepository.findFarmerByAadhar_AadharId(aadharId);
+    }
+
+    @Override
+    public Farmer findFarmerById(int id) {
+        return farmerRepository.findFarmerById(id);
     }
 }

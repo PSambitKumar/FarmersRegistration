@@ -1,15 +1,16 @@
 package com.sambit.Model;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table
-public class Farmer {
+public class Relation {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column
+    private String relationName;
     @Column
     private String name;
     @Column
@@ -19,38 +20,22 @@ public class Farmer {
     @Column
     private String gender;
     @Column
-    private String relation;
-    @Column
     private String mobile;
-
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "bankId")
     private Bank bank;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "janAdhaarId")
     private Janadhaar janAdhaar;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "ackId")
     private Acknowledge acknowledge;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "adhaarId")
     private Aadhar aadhar;
-
-    @OneToMany(targetEntity = Relation.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "relId", referencedColumnName = "id")
-    private List<Relation> relationList;
-
-
-    public List<Relation> getRelationList() {
-        return relationList;
-    }
-
-    public void setRelationList(List<Relation> relationList) {
-        this.relationList = relationList;
-    }
 
     public int getId() {
         return id;
@@ -58,6 +43,14 @@ public class Farmer {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getRelationName() {
+        return relationName;
+    }
+
+    public void setRelationName(String relationName) {
+        this.relationName = relationName;
     }
 
     public String getName() {
@@ -90,14 +83,6 @@ public class Farmer {
 
     public void setGender(String gender) {
         this.gender = gender;
-    }
-
-    public String getRelation() {
-        return relation;
-    }
-
-    public void setRelation(String relation) {
-        this.relation = relation;
     }
 
     public String getMobile() {
@@ -142,20 +127,18 @@ public class Farmer {
 
     @Override
     public String toString() {
-        return "Farmer{" +
+        return "Relation{" +
                 "id=" + id +
+                ", relationName='" + relationName + '\'' +
                 ", name='" + name + '\'' +
                 ", fathersName='" + fathersName + '\'' +
                 ", age=" + age +
                 ", gender='" + gender + '\'' +
-                ", relation='" + relation + '\'' +
                 ", mobile='" + mobile + '\'' +
                 ", bank=" + bank +
                 ", janAdhaar=" + janAdhaar +
                 ", acknowledge=" + acknowledge +
                 ", aadhar=" + aadhar +
-                ", relationList=" + relationList +
                 '}';
     }
-
 }
