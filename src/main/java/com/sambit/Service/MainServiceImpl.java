@@ -5,6 +5,8 @@ import com.sambit.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MainServiceImpl implements MainService {
 
@@ -19,6 +21,11 @@ public class MainServiceImpl implements MainService {
     @Autowired
     private AcknowledgeRepository acknowledgeRepository;
 
+
+    @Override
+    public List<Farmer> findAllFarmersList() {
+        return farmerRepository.findAll();
+    }
 
     @Override
     public Bank saveBank(Bank bank) {

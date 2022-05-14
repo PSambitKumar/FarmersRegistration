@@ -2,7 +2,10 @@ package com.sambit.Service;
 
 import com.sambit.Model.*;
 
+import java.util.List;
+
 public interface MainService {
+    List<Farmer> findAllFarmersList();
     Bank saveBank(Bank bank);
     Acknowledge saveAcknowledge(Acknowledge acknowledge);
     Janadhaar saveJanAdhaar(Janadhaar janAdhaar);
