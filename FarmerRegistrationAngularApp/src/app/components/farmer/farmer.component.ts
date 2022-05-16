@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Farmer} from "../../models/farmer";
 import * as $ from 'jquery'
+import {FarmerService} from "../../services/farmer.service";
 
 @Component({
   selector: 'app-farmer',
@@ -11,7 +12,7 @@ export class FarmerComponent implements OnInit{
 
   farmer : Farmer = new Farmer();
 
-  constructor() { }
+  constructor(private farmerService : FarmerService) { }
 
   ngOnInit(): void {
     this.hideUniqueIdInput();
@@ -48,5 +49,6 @@ export class FarmerComponent implements OnInit{
 
   farmerForm(){
     console.log(this.farmer);
+    this.farmerService.createFarmer(this.farmer.age);
   }
 }
