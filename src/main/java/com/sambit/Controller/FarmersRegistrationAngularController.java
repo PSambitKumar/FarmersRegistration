@@ -1,5 +1,6 @@
 package com.sambit.Controller;
 
+import com.sambit.Bean.FarmerBean;
 import com.sambit.Model.Farmer;
 import com.sambit.Service.MainService;
 import lombok.extern.slf4j.Slf4j;
@@ -26,10 +27,10 @@ public class FarmersRegistrationAngularController {
         return mainService.findAllFarmersList();
     }
 
-    @GetMapping(value = "/createFarmer")
-    public String createEmployee(){
+    @PostMapping(value = "/createFarmer")
+    public String createEmployee(@RequestBody FarmerBean farmerBean){
         System.out.println("Inside Create Farmer--------------->>");
-//        System.out.println(farmer);
+        System.out.println(farmerBean);
         return null;
     }
 }

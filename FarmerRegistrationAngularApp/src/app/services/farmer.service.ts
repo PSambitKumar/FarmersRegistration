@@ -10,7 +10,7 @@ export class FarmerService {
   private baseUrl = "http://localhost:8088/farmer/v1"
 
   constructor(private httpClient : HttpClient) { }
-  createFarmer(farmer : Farmer) : Observable<object>{
-    return this.httpClient.get<object>(`${this.baseUrl+"/createFarmer"}`);
+  createFarmer(age : any) : Observable<object>{
+    return this.httpClient.get<object>(`${this.baseUrl+"/createFarmer"}`, age);
   }
 }
