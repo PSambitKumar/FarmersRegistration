@@ -7,6 +7,9 @@ export class Farmer {
   relation : any;
   mobile : any;
   bank : any;
+  ifscCode : any;
+  accountNumber: any;
+  uniqueId: any;
   janAdhaar : any;
   acknowledge : any;
   aadhar : any;
