@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './farmer.component.html',
   styleUrls: ['./farmer.component.css']
 })
-export class FarmerComponent implements OnInit {
+export class FarmerComponent implements OnInit{
 
   constructor() { }
 
