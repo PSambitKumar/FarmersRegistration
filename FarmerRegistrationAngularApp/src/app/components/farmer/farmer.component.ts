@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Farmer} from "../../models/farmer";
+import {FarmerBean} from "../../beans/farmerBean";
 import * as $ from 'jquery'
 import {FarmerService} from "../../services/farmer.service";
+import {Farmer} from "../../models/farmer";
 
 @Component({
   selector: 'app-farmer',
@@ -10,6 +11,7 @@ import {FarmerService} from "../../services/farmer.service";
 })
 export class FarmerComponent implements OnInit{
 
+  farmerBean : FarmerBean = new FarmerBean();
   farmer : Farmer = new Farmer();
 
   constructor(private farmerService : FarmerService) { }
@@ -48,7 +50,13 @@ export class FarmerComponent implements OnInit{
   }
 
   farmerForm(){
-    console.log(this.farmer);
-    this.farmerService.createFarmer(this.farmer.age);
+    console.log(this.farmerBean);
+    console.log("Inside FarmerBean Form Submit.");
+    this.farmerService.createFarmer(this.farmerBean).subscribe(data => {
+      console.log(data);
+      console.log("Resposnse Data : " + data);//Check Difference In Console
+      this.farmer = data;
+      console.log(this.farmer)
+    });
   }
 }

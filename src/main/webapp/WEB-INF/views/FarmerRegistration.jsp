@@ -9,20 +9,20 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"> </script>
-    <title>Farmer Registration</title>
+    <title>FarmerBean Registration</title>
 </head>
 <body style="background-color: aliceblue; font-family: 'Segoe UI Semibold'">
 
 
-<h2 class="text-center" style="margin-top: 1rem; color: green">Farmer Registration</h2>
+<h2 class="text-center" style="margin-top: 1rem; color: green">FarmerBean Registration</h2>
 
 <fieldset style="margin: 3rem;" class="form-group border p-3">
     <legend style="color: green; font-size: 26px" class="w-auto px-2">Farmers Details</legend>
     <form action="/saveFarmer" method="post" modeAttribute="farmer" id="farmerRegistrationForm">
         <div class="row" style="margin: 3rem;" >
             <div class="col-md-3">
-                <label for="name" class="form-label">Farmer Name</label>
-                <input type="text" class="form-control" id="name" name="name" style="background-color: aliceblue" placeholder="Enter Farmer's Name" required>
+                <label for="name" class="form-label">FarmerBean Name</label>
+                <input type="text" class="form-control" id="name" name="name" style="background-color: aliceblue" placeholder="Enter FarmerBean's Name" required>
             </div>
             <div class="col-md-3">
                 <label for="fathersName" class="form-label">Father's Name</label>

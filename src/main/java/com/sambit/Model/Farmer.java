@@ -142,7 +142,7 @@ public class Farmer {
 
     @Override
     public String toString() {
-        return "Farmer{" +
+        return "FarmerBean{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", fathersName='" + fathersName + '\'' +

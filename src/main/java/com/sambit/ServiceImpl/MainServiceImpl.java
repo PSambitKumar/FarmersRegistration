@@ -1,7 +1,8 @@
-package com.sambit.Service;
+package com.sambit.ServiceImpl;
 
 import com.sambit.Model.*;
 import com.sambit.Repository.*;
+import com.sambit.Service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,8 @@ public class MainServiceImpl implements MainService {
     private AadharRepository aadharRepository;
     @Autowired
     private AcknowledgeRepository acknowledgeRepository;
+    @Autowired
+    private RelationRepository relationRepository;
 
 
     @Override
@@ -70,5 +73,15 @@ public class MainServiceImpl implements MainService {
     @Override
     public Farmer findFarmerById(int id) {
         return farmerRepository.findFarmerById(id);
+    }
+
+    @Override
+    public List<Bank> findAllBankList() {
+        return bankRepository.findAll();
+    }
+
+    @Override
+    public List<Relation> findAllRelationList() {
+        return relationRepository.findAll();
     }
 }

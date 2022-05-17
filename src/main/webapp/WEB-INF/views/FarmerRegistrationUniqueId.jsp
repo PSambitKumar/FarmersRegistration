@@ -15,12 +15,12 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"> </script>
-    <title>Farmer Registration</title>
+    <title>FarmerBean Registration</title>
 </head>
 <body style="background-color: aliceblue; font-family: 'Segoe UI Semibold'">
 
 
-<h4 class="text-center" style="margin-top: 1rem; color: green">Farmer Registration Using Unique ID</h4>
+<h4 class="text-center" style="margin-top: 1rem; color: green">FarmerBean Registration Using Unique ID</h4>
 
 <form action="/searchFarmer" method="post" modeAttribute="farmer" id="farmerRegistrationForm">
 
@@ -379,7 +379,7 @@
 
 <%--On Submit of Family Details--%>
 <div style="margin-left: 3rem; margin-right: 3rem;" id="farmerFamilyDetails">
-    <h5 style="/*margin-left: 3rem; margin-right: 3rem; */color: green" class="card-title">Farmer's Family Details</h5>
+    <h5 style="/*margin-left: 3rem; margin-right: 3rem; */color: green" class="card-title">FarmerBean's Family Details</h5>
     <table id="dynamicTable1" border = "1" align="center" class="table" cellspacing="0">
         <thead>
         <tr style="background-color: aliceblue">

@@ -15,4 +15,6 @@ public interface MainService {
     Farmer findFarmerByJanadhaar(String janadharId);
     Farmer findFarmerByAadhar(String aadharId);
     Farmer findFarmerById(int id);
+    List<Bank> findAllBankList();
+    List<Relation> findAllRelationList();
 }

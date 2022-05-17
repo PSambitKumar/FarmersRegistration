@@ -3,6 +3,7 @@ package com.sambit.Controller;
 import com.sambit.Model.*;
 import com.sambit.Service.MainService;
 import com.sambit.Validation.AadharValidation;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.List;
 
 @Controller
+@Slf4j
 public class FarmersRegistrationController {
 
     private static final Logger logger = LoggerFactory.getLogger(FarmersRegistrationController.class);
@@ -36,7 +38,7 @@ public class FarmersRegistrationController {
                              @RequestParam("janadhaarId")String janadhaarId,
                              @RequestParam("adhaarId")String adhaarId,
                              @RequestParam("mobile")String mobile){
-        System.out.println("Inside Save Farmer----------->>");
+        System.out.println("Inside Save FarmerBean----------->>");
         logger.info("Details : " + farmer + ", Bank Name : " + bankName + ", Account Number :" + accountNumber + ", IFSC Code : " + ifscCode + ", Mobile : " + mobile);
         logger.info("Unique ID : " + uniqueId + ", Ack ID : " + ackId + ", Janadhaar ID : " + janadhaarId + ", Adhar ID : " + janadhaarId);
 
@@ -58,7 +60,7 @@ public class FarmersRegistrationController {
                         System.out.println("Acknowledge ID Saved Successfully.");
                         farmer.setAcknowledge(acknowledge);
                         if (mainService.saveFarmer(farmer) != null){
-                            System.out.println("Farmer Saved Successfully.");
+                            System.out.println("FarmerBean Saved Successfully.");
                         }
                     }
                 }
@@ -70,7 +72,7 @@ public class FarmersRegistrationController {
                         System.out.println("Janadhaar ID Saved Successfully.");
                         farmer.setJanAdhaar(janAdhaar);
                         if (mainService.saveFarmer(farmer) != null){
-                            System.out.println("Farmer Saved Successfully.");
+                            System.out.println("FarmerBean Saved Successfully.");
                         }
                     }
                 }
@@ -82,7 +84,7 @@ public class FarmersRegistrationController {
                         System.out.println("Aadhar ID Saved Successfully.");
                         farmer.setAadhar(aadhar);
                         if (mainService.saveFarmer(farmer) != null){
-                            System.out.println("Farmer Saved Successfully.");
+                            System.out.println("FarmerBean Saved Successfully.");
                         }
                     }
                 }
@@ -195,7 +197,7 @@ public class FarmersRegistrationController {
                 relationList.add(relation);
                 farmer.setRelationList(relationList);
                 if (mainService.saveFarmer(farmer) != null) {
-                    System.out.println("Relation Added to Farmer's Data by Aadhar ID.");
+                    System.out.println("Relation Added to FarmerBean's Data by Aadhar ID.");
                     result = "Saved";
                 }
             }
@@ -208,7 +210,7 @@ public class FarmersRegistrationController {
                 farmer.setRelationList(relationList);
                 logger.info(farmer.toString());
                 if (mainService.saveFarmer(farmer) != null) {
-                    System.out.println("Relation Added to Farmer's Data by Ack ID.");
+                    System.out.println("Relation Added to FarmerBean's Data by Ack ID.");
                     result = "Saved";
                 }
             } else if (uniqueId.equalsIgnoreCase("Janadhaar Id")) {
@@ -219,7 +221,7 @@ public class FarmersRegistrationController {
                 relationList.add(relation);
                 farmer.setRelationList(relationList);
                 if (mainService.saveFarmer(farmer) != null) {
-                    System.out.println("Relation Added to Farmer's Data by Janadhaar ID.");
+                    System.out.println("Relation Added to FarmerBean's Data by Janadhaar ID.");
                     result = "Saved";
                 }
             }
