@@ -9,4 +9,5 @@ import java.util.List;
 public interface MainServiceAngular {
 
 	Farmer createFarmer(FarmerBean farmerBean);
+	List<Farmer> getFarmerList();
 }

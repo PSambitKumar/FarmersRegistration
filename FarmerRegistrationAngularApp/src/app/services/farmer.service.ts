@@ -11,13 +11,16 @@ import {Farmer} from "../models/farmer";
 })
 export class FarmerService {
   private baseUrl = "http://localhost:8088/farmer/v1";
-  private baseUrl1 = "http://localhost:8088/farmer/v1/checking";
 
   constructor(private httpClient : HttpClient) { }
 
   createFarmer(farmerBean : FarmerBean) : Observable<Farmer>{
     console.log("From Service : " + JSON.stringify(farmerBean));
     return this.httpClient.post<Farmer>(`${this.baseUrl +"/createFarmer"}`, farmerBean);
+  }
+
+  getFarmerList() : Observable<Farmer[]>{
+    return this.httpClient.get<Farmer[]>(`${this.baseUrl + "/getFarmerList"}`);
   }
 
   // getRelationList() : Observable<Relation[]>{

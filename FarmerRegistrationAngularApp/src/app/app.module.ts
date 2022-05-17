@@ -7,6 +7,10 @@ import { FarmerComponent } from './components/farmer/farmer.component';
 import { HomeComponent } from './components/home/home.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import {DataTablesModule} from "angular-datatables";
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {MatDialogModule} from "@angular/material/dialog";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,8 +21,11 @@ import {HttpClientModule} from "@angular/common/http";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    FormsModule
+    HttpClientModule,//Added for Http Redirect
+    FormsModule,//Added for Form Module
+    DataTablesModule,//Added For Data Table
+    FontAwesomeModule,//For Font Awesome
+    MatDialogModule, BrowserAnimationsModule,//For Modal
   ],
   providers: [],
   bootstrap: [AppComponent]

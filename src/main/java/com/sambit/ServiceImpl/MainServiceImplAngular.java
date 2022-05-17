@@ -74,4 +74,9 @@ public class MainServiceImplAngular implements MainServiceAngular {
 		saveFarmer = farmerRegistrationDaoAngular.saveFarmer(farmer);
 		return saveFarmer;
 	}
+
+	@Override
+	public List<Farmer> getFarmerList() {
+		return farmerRegistrationDaoAngular.findAllFarmerList();
+	}
 }

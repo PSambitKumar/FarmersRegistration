@@ -33,16 +33,10 @@ public class FarmersRegistrationAngularController {
         return mainService.findAllFarmersList();
     }
 
-    @GetMapping ("/checking")
-    public String checking(){
-        System.out.println("Inside Checking Method------------------->>");
-        return null;
-    }
-
     @ResponseBody
     @GetMapping("/relationList")
-    public List<Relation> getBankDetails(){
-        System.out.println("Inside Bank Details-------------------->>");
+    public List<Relation> getRelationList(){
+        System.out.println("Inside Relation List Method-------------------->>");
         return mainService.findAllRelationList();
     }
 
@@ -50,10 +44,19 @@ public class FarmersRegistrationAngularController {
     public ResponseEntity<Farmer> createEmployee(@RequestBody FarmerBean farmerBean){
         System.out.println("Inside Create FarmerBean--------------->>");
         System.out.println(farmerBean);
-//        Farmer farmer = mainServiceAngular.createFarmer(farmerBean);
-        Farmer farmer  = mainService.findFarmerById(1);
+        Farmer farmer = mainServiceAngular.createFarmer(farmerBean);
+//        Farmer farmer  = mainService.findFarmerById(1);//Just Checking Full Data
         System.out.println(farmer);
         return ResponseEntity.ok(farmer);
     }
+
+    @ResponseBody
+    @GetMapping(value = "/getFarmerList")
+    public List<Farmer> getFarmerList(){
+        System.out.println("Inside Get Farmers List---------------->>");
+        return mainServiceAngular.getFarmerList();
+    }
+
+
 
 }

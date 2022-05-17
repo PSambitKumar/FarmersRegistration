@@ -168,12 +168,53 @@
       </fieldset>
     </div>
     <div id="view">
-      <fieldset style="margin: 2rem;" class="form-group border p-3">
+      <fieldset style="margin-left: 2rem; margin-right: 2rem;" class="form-group border p-3">
         <legend style="color: green; font-size: 26px" class="w-auto px-2">Farmers Details Table</legend>
+        <table id="dynamicTable" class="table row-border hover">
+
+          <thead>
+          <th scope="col">Sl No.</th>
+          <th scope="col">Name</th>
+          <th scope="col">Father's Name</th>
+          <th scope="col">Relation</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Age</th>
+          <th scope="col">Aadhar No.</th>
+          <th scope="col">Acknowledge No.</th>
+          <th scope="col">Janadhaar No.</th>
+          <th scope="col">Bank Acc. No.</th>
+          <th scope="col">Relatives</th>
+          <th scope="col">Action</th>
+          </thead>
+
+          <tbody>
+          <tr *ngFor="let farmer of farmerList; let count = index">
+            <td>{{count + 1}}</td>
+            <td>{{farmer.name}}</td>
+            <td>{{farmer.fathersName}}</td>
+            <td>{{farmer.relation}}</td>
+            <td>{{farmer.gender}}</td>
+            <td>{{farmer.age}}</td>
+            <td>Not Found</td>
+            <td >Not Found</td>
+            <td>Not Found</td>
+            <td><a href="javascript:void(0)" (click)="showBankDetails(farmer.id)">{{farmer.bank.accountNumber}}</a></td>
+            <td><button class="btn btn-warning fa fa-eye"></button></td>
+            <td><button type="button" (click)="editFarmer(farmer.id)" class="btn btn-primary fa fa-edit"></button>&nbsp;
+              <button type="button" (click)="deleteFarmer(farmer.id)" class="btn btn-danger fa fa-trash"></button>
+            </td>
+          </tr>
+          </tbody>
+
+        </table>
       </fieldset>
     </div>
   </div>
 </div>
+
+<!--<div class="example-button-row">-->
+<!--  <button mat-button color="primary" (click)="openModal()">Open Modal</button>-->
+<!--</div>-->
 
 </body>
 </html>
