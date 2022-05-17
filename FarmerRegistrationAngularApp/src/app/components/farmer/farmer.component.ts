@@ -18,6 +18,7 @@ export class FarmerComponent implements OnInit{
 
   ngOnInit(): void {
     this.hideUniqueIdInput();
+    this.addFarmer()
   }
 
   // For Hiding of Unique Id Inouts
@@ -47,6 +48,15 @@ export class FarmerComponent implements OnInit{
       $('#id2').hide();
       $('#id3').hide();
     }
+  }
+
+  addFarmer(){
+    $('#add').show();
+    $('#view').hide();
+  }
+  viewFarmer(){
+    $('#add').hide();
+    $('#view').show();
   }
 
   farmerForm(){
