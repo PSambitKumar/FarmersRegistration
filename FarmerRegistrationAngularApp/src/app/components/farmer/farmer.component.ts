@@ -7,6 +7,8 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog
 import {ModalService} from "../../services/modal.service";
 import {data} from "jquery";
 import {HomeComponent} from "../home/home.component";
+import {Bank} from "../../models/bank";
+import {BankModalComponent} from "../../modalComponents/bank-modal/bank-modal.component";
 
 @Component({
   selector: 'app-farmer',
@@ -55,8 +57,18 @@ export class FarmerComponent implements OnInit{
     console.log("Farmer Id :" + id);
   }
 
-  showBankDetails(id : any){
-    console.log("Farmer Id :" + id);
+  showBankDetails(bank : Bank, name : any){
+    console.log("Bank Details :" + bank);
+    const dialogRef = this.matDialog.open(BankModalComponent, {
+      data : {
+        "bank" : bank,
+        "farmerName" : name
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
   // openModal(){
@@ -107,9 +119,15 @@ export class FarmerComponent implements OnInit{
   addFarmer(){
     $('#add').show();
     $('#view').hide();
+    $('#btn1').addClass("btn-primary");
+    $('#btn2').removeClass("btn-primary");
+
   }
   viewFarmer(){
     $('#add').hide();
     $('#view').show();
+    $('#btn2').addClass("btn-primary");
+    $('#btn1').removeClass("btn-primary");
   }
+
 }

@@ -6,7 +6,6 @@ body{
 }
 
 h3{
-  font-weight: bolder;
   background-color: aliceblue;
 }
 .card{
@@ -34,7 +33,11 @@ fieldset{
   width: 10%;
   margin-right: 2rem;
 }
-#btn1{
-  margin-right: 10px;
+table{
+  margin-left: 2rem;
+  margin-top: 3rem;
+}
+.farmerDetails{
+  margin-top: 3rem;
 }
 

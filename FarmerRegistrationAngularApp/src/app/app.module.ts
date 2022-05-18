@@ -11,12 +11,14 @@ import {DataTablesModule} from "angular-datatables";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {MatDialogModule} from "@angular/material/dialog";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BankModalComponent } from './modalComponents/bank-modal/bank-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FarmerComponent,
-    HomeComponent
+    HomeComponent,
+    BankModalComponent
   ],
   imports: [
     BrowserModule,

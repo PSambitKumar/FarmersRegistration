@@ -4,16 +4,16 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>FarmerBean Management</title>
+  <title>Farmer Management</title>
 </head>
 <body>
-<h3 class="text-center">FarmerBean Management System</h3>
+<h3 class="text-center">Farmer Management System</h3>
 
 <div class="card">
   <div class="card-header">
     <ul class="nav nav-tabs nav-fill">
-      <button class="btn btn-primary" id="btn1" (click)="addFarmer()">Add Farmer</button>
-      <button class="btn btn-success" id="btn2" (click)="viewFarmer()">View Farmers</button>
+      <button class="btn" id="btn1" (click)="addFarmer()">Add Farmer</button>
+      <button class="btn" id="btn2" (click)="viewFarmer()">View Farmers</button>
     </ul>
   </div>
 
@@ -21,14 +21,14 @@
     <div id="add">
       <fieldset style="margin-left: 2rem; margin-right: 2rem;" class="form-group border p-3">
         <legend style="color: green; font-size: 26px" class="w-auto px-2">Farmers Details</legend>
-        <form (ngSubmit)="farmerForm()" style="margin-top: 2rem;">
+        <form (ngSubmit)="farmerForm()" style="margin-top: 2rem; width: 99%">
           <div class="container">
 
-            <div class="row">
+            <div class="row farmerDetails">
 
               <div class="col-sm">
                 <div class="col-md-12">
-                  <label for="name" class="form-label">FarmerBean Name</label>
+                  <label for="name" class="form-label">Farmer Name</label>
                   <input [(ngModel)]="farmerBean.name" type="text"  class="form-control" id="name" name="name" style="background-color: aliceblue" placeholder="Enter FarmerBean's Name" required>
                 </div>
               </div>
@@ -170,21 +170,21 @@
     <div id="view">
       <fieldset style="margin-left: 2rem; margin-right: 2rem;" class="form-group border p-3">
         <legend style="color: green; font-size: 26px" class="w-auto px-2">Farmers Details Table</legend>
-        <table id="dynamicTable" class="table row-border hover">
+        <table id="dynamicTable" class="table row-border hover table-responsive table-bordered" style="width: 96%;">
 
           <thead>
-          <th scope="col">Sl No.</th>
-          <th scope="col">Name</th>
-          <th scope="col">Father's Name</th>
-          <th scope="col">Relation</th>
-          <th scope="col">Gender</th>
-          <th scope="col">Age</th>
-          <th scope="col">Aadhar No.</th>
-          <th scope="col">Acknowledge No.</th>
-          <th scope="col">Janadhaar No.</th>
-          <th scope="col">Bank Acc. No.</th>
-          <th scope="col">Relatives</th>
-          <th scope="col">Action</th>
+          <th>Sl No.</th>
+          <th>Name</th>
+          <th>Father's Name</th>
+          <th>Relation</th>
+          <th>Gender</th>
+          <th>Age</th>
+          <th>Aadhar No.</th>
+          <th>Acknowledge No.</th>
+          <th>Janadhaar No.</th>
+          <th>Bank Acc. No.</th>
+          <th>Relatives</th>
+          <th>Action</th>
           </thead>
 
           <tbody>
@@ -198,14 +198,13 @@
             <td>Not Found</td>
             <td >Not Found</td>
             <td>Not Found</td>
-            <td><a href="javascript:void(0)" (click)="showBankDetails(farmer.id)">{{farmer.bank.accountNumber}}</a></td>
+            <td><a href="javascript:void(0)" (click)="showBankDetails(farmer.bank, farmer.name)">{{farmer.bank.accountNumber}}</a></td>
             <td><button class="btn btn-warning fa fa-eye"></button></td>
             <td><button type="button" (click)="editFarmer(farmer.id)" class="btn btn-primary fa fa-edit"></button>&nbsp;
               <button type="button" (click)="deleteFarmer(farmer.id)" class="btn btn-danger fa fa-trash"></button>
             </td>
           </tr>
           </tbody>
-
         </table>
       </fieldset>
     </div>
