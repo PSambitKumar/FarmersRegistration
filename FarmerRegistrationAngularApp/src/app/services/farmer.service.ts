@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {FarmerBean} from "../beans/farmerBean";
 import {Observable} from "rxjs";
-import {Bank} from "../models/bank";
-import {Relation} from "../models/relation";
 import {Farmer} from "../models/farmer";
 
 @Injectable({

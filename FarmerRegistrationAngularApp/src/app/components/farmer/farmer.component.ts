@@ -5,8 +5,6 @@ import {FarmerService} from "../../services/farmer.service";
 import {Farmer} from "../../models/farmer";
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {ModalService} from "../../services/modal.service";
-import {data} from "jquery";
-import {HomeComponent} from "../home/home.component";
 import {Bank} from "../../models/bank";
 import {BankModalComponent} from "../../modalComponents/bank-modal/bank-modal.component";
 
