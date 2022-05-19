@@ -2928,7 +2928,7 @@ textarea.form-control {
 .btn {
   display: inline-block;
   font-weight: 400;
-  color: #44476A;
+  color: black;
   text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
@@ -2938,7 +2938,7 @@ textarea.form-control {
   padding: 0.55rem 0.95rem;
   font-size: 1rem;
   line-height: 1.5;
-  border-radius: 0.55rem;
+  border-radius: 5px;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -26457,7 +26457,7 @@ a.badge-slack:hover, a.badge-slack:focus {
 .btn {
   position: relative;
   transition: all 0.2s ease;
-  letter-spacing: 0.025em;
+  letter-spacing: 0em;
   font-size: 1rem;
   border-color: #D1D9E6;
   box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #ffffff;
@@ -26553,8 +26553,8 @@ a.badge-slack:hover, a.badge-slack:focus {
 
 .btn-icon-only {
   position: relative;
-  width: 2.575rem;
-  height: 2.575rem;
+  width: 35px;
+  height: 35px;
   padding: 0;
 }
 
@@ -26642,8 +26642,8 @@ a.badge-slack:hover, a.badge-slack:focus {
 }
 
 .btn-primary {
-  color: #31344b;
-  background-color: #e6e7ee;
+  color: black;
+  background-color: #0d6efd;
 }
 
 .btn-primary:hover {
