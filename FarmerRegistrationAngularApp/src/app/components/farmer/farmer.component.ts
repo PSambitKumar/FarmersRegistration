@@ -119,15 +119,19 @@ export class FarmerComponent implements OnInit{
   addFarmer(){
     $('#add').show();
     $('#view').hide();
-    $('#btn1').addClass("btn-primary");
-    $('#btn2').removeClass("btn-primary");
+    // $('#btn1').addClass("btn-primary");
+    // $('#btn2').removeClass("btn-primary");
 
   }
   viewFarmer(){
     $('#add').hide();
     $('#view').show();
-    $('#btn2').addClass("btn-primary");
-    $('#btn1').removeClass("btn-primary");
+    // $('#btn2').addClass("btn-primary");
+    // $('#btn1').removeClass("btn-primary");
+  }
+
+  openModal1(){
+    $('#modalSubscribe').show();
   }
 
 }

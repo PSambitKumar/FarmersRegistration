@@ -1,7 +1,8 @@
 @import "bootstrap";
 
 body{
-  font-family: "Segoe UI Semibold";
+  font-family: "Yu Gothic UI Semibold";
+  background-color: #f2f2f2;
 }
 h3{
   color: green;

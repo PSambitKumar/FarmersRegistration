@@ -11,7 +11,7 @@
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"> </script>
     <title>FarmerBean Registration</title>
 </head>
-<body style="background-color: aliceblue; font-family: 'Segoe UI Semibold'">
+<body style="background-color: #f2f2f2; font-family: 'Yu Gothic UI Semibold'">
 
 
 <h2 class="text-center" style="margin-top: 1rem; color: green">FarmerBean Registration</h2>
@@ -22,25 +22,25 @@
         <div class="row" style="margin: 3rem;" >
             <div class="col-md-3">
                 <label for="name" class="form-label">FarmerBean Name</label>
-                <input type="text" class="form-control" id="name" name="name" style="background-color: aliceblue" placeholder="Enter FarmerBean's Name" required>
+                <input type="text" class="form-control" id="name" name="name" style="background-color: #f2f2f2" placeholder="Enter FarmerBean's Name" required>
             </div>
             <div class="col-md-3">
                 <label for="fathersName" class="form-label">Father's Name</label>
-                <input type="text" class="form-control" id="fathersName" name="fathersName" style="background-color: aliceblue" placeholder="Enter Father's Name" required>
+                <input type="text" class="form-control" id="fathersName" name="fathersName" style="background-color: #f2f2f2" placeholder="Enter Father's Name" required>
             </div>
             <div class="col-md-3">
                 <label for="age" class="form-label">Age</label>
-                <input type="number" class="form-control" id="age" name="age" style="background-color: aliceblue" placeholder="Enter Age" required>
+                <input type="number" class="form-control" id="age" name="age" style="background-color: #f2f2f2" placeholder="Enter Age" required>
             </div>
             <div class="col-md-3">
                 <label class="form-label">Gender</label>
                 <div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" id="male" name="gender" style="background-color: aliceblue" value="male">
+                        <input class="form-check-input" type="radio" id="male" name="gender" style="background-color: #f2f2f2" value="male">
                         <label class="form-check-label" for="male">Male</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" id="female" name="gender" style="background-color: aliceblue" value="female">
+                        <input class="form-check-input" type="radio" id="female" name="gender" style="background-color: #f2f2f2" value="female">
                         <label class="form-check-label" for="female">Female</label>
                     </div>
                 </div>
@@ -50,13 +50,13 @@
         <div class="row" style="margin: 3rem;">
             <div class="col-md-3">
                 <label for="relation" class="form-label">Relation</label>
-                <select class="form-select" aria-label="Default select example" style="background-color: aliceblue" id="relation" name="relation">
+                <select class="form-select" aria-label="Default select example" style="background-color: #f2f2f2" id="relation" name="relation">
                     <option selected value="Self">Self</option>
                 </select>
             </div>
             <div class="col-md-3">
                 <label for="bankName" class="form-label">Bank Name</label>
-                <select class="form-select" aria-label="Default select example" style="background-color: aliceblue" id="bankName" name="bankName">
+                <select class="form-select" aria-label="Default select example" style="background-color: #f2f2f2" id="bankName" name="bankName">
                     <option selected>Select</option>
                     <option value="State Bank of India">State Bank of India</option>
                     <option value="Bank of Baroda">Bank of Baroda</option>
@@ -67,22 +67,22 @@
             </div>
             <div class="col-md-3">
                 <label for="ifscCode" class="form-label">IFSC Code</label>
-                <input type="text" class="form-control" id="ifscCode" style="background-color: aliceblue" name="ifscCode" placeholder="Enter IFSC Code" required>
+                <input type="text" class="form-control" id="ifscCode" style="background-color: #f2f2f2" name="ifscCode" placeholder="Enter IFSC Code" required>
             </div>
             <div class="col-md-3">
                 <label for="accountNumber" class="form-label">Account Number</label>
-                <input type="text" class="form-control" id="accountNumber" style="background-color: aliceblue" name="accountNumber" placeholder="Enter  Account Number" required>
+                <input type="text" class="form-control" id="accountNumber" style="background-color: #f2f2f2" name="accountNumber" placeholder="Enter  Account Number" required>
             </div>
         </div>
 
         <div class="row" style="margin: 3rem;">
             <div class="col-md-3">
                 <label for="mobile" class="form-label">Mobile Number</label>
-                <input type="text" class="form-control" id="mobile" style="background-color: aliceblue" name="mobile" placeholder="Enter Mobile Number" required>
+                <input type="text" class="form-control" id="mobile" style="background-color: #f2f2f2" name="mobile" placeholder="Enter Mobile Number" required>
             </div>
             <div class="col-md-3">
                 <label for="uniqueId" class="form-label">Unique ID</label>
-                <select class="form-select" aria-label="Default select example" style="background-color: aliceblue" id="uniqueId" name="uniqueId">
+                <select class="form-select" aria-label="Default select example" style="background-color: #f2f2f2" id="uniqueId" name="uniqueId">
                     <option selected>Select</option>
                     <option value="Ack Id">Ack Id</option>
                     <option value="Janadhaar Id">Janadhaar Id</option>
@@ -91,19 +91,19 @@
             </div>
             <div class="col-md-3" id="id1">
                 <label for="ackId" class="form-label">Acknowledge ID</label>
-                <input type="text" class="form-control" id="ackId" style="background-color: aliceblue" name="ackId" placeholder="Enter Acknowledge ID" required>
+                <input type="text" class="form-control" id="ackId" style="background-color: #f2f2f2" name="ackId" placeholder="Enter Acknowledge ID" required>
             </div>
             <div class="col-md-3" id="id2">
                 <label for="janadhaarId" class="form-label">Janadhaar ID</label>
-                <input type="text" class="form-control" id="janadhaarId" style="background-color: aliceblue" name="janadhaarId" placeholder="Enter Janadhaar ID" required>
+                <input type="text" class="form-control" id="janadhaarId" style="background-color: #f2f2f2" name="janadhaarId" placeholder="Enter Janadhaar ID" required>
             </div>
             <div class="col-md-3" id="id3">
                 <label for="adhaarId" class="form-label">Adhaar ID</label>
-                <input type="text" class="form-control" id="adhaarId" style="background-color: aliceblue" name="adhaarId" placeholder="Enter Adhaar ID" required>
+                <input type="text" class="form-control" id="adhaarId" style="background-color: #f2f2f2" name="adhaarId" placeholder="Enter Adhaar ID" required>
             </div>
             <div class="col-md-3">
                 <label for="addrelation" class="form-label">Add Relation</label>
-                <select class="form-select" aria-label="Default select example" style="background-color: aliceblue" id="addrelation" name="addrelation">
+                <select class="form-select" aria-label="Default select example" style="background-color: #f2f2f2" id="addrelation" name="addrelation">
                     <option selected>Select</option>
                     <option value="Brother">Brother</option>
                     <option value="Sister">Sister</option>

@@ -6,11 +6,11 @@ charset = utf-8
 indent_style = space
 indent_size = 2
 insert_final_newline = true
-trim_trailing_whitespace = true
+trim_trailing_#f2f2f2space = true
 
 [*.ts]
 quote_type = single
 
 [*.md]
 max_line_length = off
-trim_trailing_whitespace = false
+trim_trailing_#f2f2f2space = false

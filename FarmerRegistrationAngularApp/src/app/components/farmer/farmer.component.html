@@ -7,20 +7,23 @@
   <title>Farmer Management</title>
 </head>
 <body>
-<h3 class="text-center">Farmer Management System</h3>
+<a class="logoBrand navbar-brand shadow-soft py-2 px-3 rounded border border-light mr-lg-4" routerLink="" routerLinkActive="active">
+  <div class="navbar-brand-dark"><span class="fa fa-leaf"></span> FMS</div>
+</a>
+<!--<h3 class="text-center">Farmer Management System</h3>-->
 
 <div class="card">
   <div class="card-header">
     <ul class="nav nav-tabs nav-fill">
-      <button class="btn" id="btn1" (click)="addFarmer()">Add Farmer</button>
-      <button class="btn" id="btn2" (click)="viewFarmer()">View Farmers</button>
+      <button class="btn btn-primary" id="btn1" (click)="addFarmer()">Add Farmer</button>
+      <button class="btn btn-primary" id="btn2" (click)="viewFarmer()">View Farmers</button>
     </ul>
   </div>
 
   <div class="card-body">
     <div id="add">
       <fieldset style="margin-left: 2rem; margin-right: 2rem;" class="form-group border p-3">
-        <legend style="color: green; font-size: 26px" class="w-auto px-2">Farmers Details</legend>
+        <legend class="w-auto px-2">Farmers Details</legend>
         <form (ngSubmit)="farmerForm()" style="margin-top: 2rem; width: 99%">
           <div class="container">
 
@@ -29,21 +32,21 @@
               <div class="col-sm">
                 <div class="col-md-12">
                   <label for="name" class="form-label">Farmer Name</label>
-                  <input [(ngModel)]="farmerBean.name" type="text"  class="form-control" id="name" name="name" style="background-color: aliceblue" placeholder="Enter FarmerBean's Name" required>
+                  <input [(ngModel)]="farmerBean.name" type="text"  class="form-control" id="name" name="name" style="background-color: #f2f2f2" placeholder="Enter FarmerBean's Name" required>
                 </div>
               </div>
 
               <div class="col-sm">
                 <div class="col-md-12">
                   <label for="fathersName" class="form-label">Father's Name</label>
-                  <input [(ngModel)]="farmerBean.fathersName" type="text" class="form-control" id="fathersName" name="fathersName" style="background-color: aliceblue" placeholder="Enter Father's Name" required>
+                  <input [(ngModel)]="farmerBean.fathersName" type="text" class="form-control" id="fathersName" name="fathersName" style="background-color: #f2f2f2" placeholder="Enter Father's Name" required>
                 </div>
               </div>
 
               <div class="col-sm">
                 <div class="col-md-12">
                   <label for="age" class="form-label">Age</label>
-                  <input [(ngModel)]="farmerBean.age" type="number" class="form-control" id="age" name="age" style="background-color: aliceblue" placeholder="Enter Age" required>
+                  <input [(ngModel)]="farmerBean.age" type="number" class="form-control" id="age" name="age" style="background-color: #f2f2f2" placeholder="Enter Age" required>
                 </div>
               </div>
 
@@ -52,11 +55,11 @@
                   <label class="form-label">Gender</label>
                   <div>
                     <div class="form-check form-check-inline">
-                      <input [(ngModel)]="farmerBean.gender" class="form-check-input" type="radio" id="male" name="gender" style="background-color: aliceblue" value="male">
+                      <input [(ngModel)]="farmerBean.gender" class="form-check-input" type="radio" id="male" name="gender" style="background-color: #f2f2f2" value="male">
                       <label class="form-check-label" for="male">Male</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input [(ngModel)]="farmerBean.gender" class="form-check-input" type="radio"  id="female" name="gender" style="background-color: aliceblue" value="female">
+                      <input [(ngModel)]="farmerBean.gender" class="form-check-input" type="radio"  id="female" name="gender" style="background-color: #f2f2f2" value="female">
                       <label class="form-check-label" for="female">Female</label>
                     </div>
                   </div>
@@ -68,7 +71,7 @@
               <div class="col-sm">
                 <div class="col-md-12">
                   <label for="relation" class="form-label">Relation</label>
-                  <select [(ngModel)]="farmerBean.relation" class="form-select"  aria-label="Default select example" style="background-color: aliceblue" id="relation" name="relation">
+                  <select [(ngModel)]="farmerBean.relation" class="custom-select my-1 mr-sm-2"  aria-label="Default select example" style="background-color: #f2f2f2" id="relation" name="relation">
                     <option selected value="Self">Self</option>
                   </select>
                 </div>
@@ -77,7 +80,7 @@
               <div class="col-sm">
                 <div class="col-md-12">
                   <label for="bankName" class="form-label">Bank Name</label>
-                  <select [(ngModel)]="farmerBean.bank" class="form-select"  aria-label="Default select example" style="background-color: aliceblue" id="bankName" name="bankName">
+                  <select [(ngModel)]="farmerBean.bank" class="custom-select my-1 mr-sm-2"  aria-label="Default select example" style="background-color: #f2f2f2" id="bankName" name="bankName">
                     <option selected value="0">Select</option>
                     <option value="State Bank of India">State Bank of India</option>
                     <option value="Bank of Baroda">Bank of Baroda</option>
@@ -91,14 +94,14 @@
               <div class="col-sm">
                 <div class="col-md-12">
                   <label for="ifscCode" class="form-label">IFSC Code</label>
-                  <input [(ngModel)]="farmerBean.ifscCode" type="text"  class="form-control" id="ifscCode" style="background-color: aliceblue" name="ifscCode" placeholder="Enter IFSC Code" required>
+                  <input [(ngModel)]="farmerBean.ifscCode" type="text"  class="form-control" id="ifscCode" style="background-color: #f2f2f2" name="ifscCode" placeholder="Enter IFSC Code" required>
                 </div>
               </div>
 
               <div class="col-sm">
                 <div class="col-md-12">
                   <label for="accountNumber" class="form-label">Account Number</label>
-                  <input [(ngModel)]="farmerBean.accountNumber" type="text" class="form-control" id="accountNumber" style="background-color: aliceblue" name="accountNumber" placeholder="Enter  Account Number" required>
+                  <input [(ngModel)]="farmerBean.accountNumber" type="text" class="form-control" id="accountNumber" style="background-color: #f2f2f2" name="accountNumber" placeholder="Enter  Account Number" required>
                 </div>
               </div>
 
@@ -108,14 +111,14 @@
               <div class="col-sm">
                 <div class="col-md-12">
                   <label for="mobile" class="form-label">Mobile Number</label>
-                  <input type="text" [(ngModel)]="farmerBean.mobile" class="form-control" id="mobile" style="background-color: aliceblue" name="mobile" placeholder="Enter Mobile Number" required>
+                  <input type="text" [(ngModel)]="farmerBean.mobile" class="form-control" id="mobile" style="background-color: #f2f2f2" name="mobile" placeholder="Enter Mobile Number" required>
                 </div>
               </div>
 
               <div class="col-sm">
                 <div class="col-md-12">
                   <label for="uniqueId" class="form-label">Unique ID</label>
-                  <select #uniqueId (change)="uniqueDropDownChange(uniqueId.value)" [(ngModel)]="farmerBean.uniqueId" class="form-select" aria-label="Default select example" style="background-color: aliceblue" id="uniqueId" name="uniqueId">
+                  <select #uniqueId (change)="uniqueDropDownChange(uniqueId.value)" [(ngModel)]="farmerBean.uniqueId" class="custom-select my-1 mr-sm-2" aria-label="Default select example" style="background-color: #f2f2f2" id="uniqueId" name="uniqueId">
                     <option value="0" selected>Select</option>
                     <option value="1">Ack Id</option>
                     <option value="2">Janadhaar Id</option>
@@ -128,15 +131,15 @@
                 <div class="col-md-12">
                   <div id="id1">
                     <label for="ackId" class="form-label">Acknowledge ID</label>
-                    <input [(ngModel)]="farmerBean.acknowledge" type="text" class="form-control" id="ackId" style="background-color: aliceblue" name="ackId" placeholder="Enter Acknowledge ID" required>
+                    <input [(ngModel)]="farmerBean.acknowledge" type="text" class="form-control" id="ackId" style="background-color: #f2f2f2" name="ackId" placeholder="Enter Acknowledge ID" required>
                   </div>
                   <div id="id2">
                     <label for="janadhaarId" class="form-label">Janadhaar ID</label>
-                    <input [(ngModel)]="farmerBean.janAdhaar" type="text" class="form-control" id="janadhaarId" style="background-color: aliceblue" name="janadhaarId" placeholder="Enter Janadhaar ID" required>
+                    <input [(ngModel)]="farmerBean.janAdhaar" type="text" class="form-control" id="janadhaarId" style="background-color: #f2f2f2" name="janadhaarId" placeholder="Enter Janadhaar ID" required>
                   </div>
                   <div id="id3">
                     <label for="adhaarId" class="form-label">Adhaar ID</label>
-                    <input [(ngModel)]="farmerBean.aadhar" type="text" class="form-control" id="adhaarId" style="background-color: aliceblue" name="adhaarId" placeholder="Enter Adhaar ID" required>
+                    <input [(ngModel)]="farmerBean.aadhar" type="text" class="form-control" id="adhaarId" style="background-color: #f2f2f2" name="adhaarId" placeholder="Enter Adhaar ID" required>
                   </div>
                 </div>
               </div>
@@ -152,12 +155,12 @@
 
           <div style="margin-top: 2rem;" class="container">
 
-            <div class="row">
+            <div class="row buttonClass">
 
               <div class="col-sm">
                 <div class="col-md-12">
-                  <button id="btnSubmit" class="btn btn-primary" type="submit">Submit</button>
-                  <button id="btnReset" class="btn btn-warning" type="reset">Reset</button>
+                  <button id="btnSubmit" class="btn" type="submit">Submit</button>
+                  <button id="btnReset" class="btn" type="reset">Reset</button>
                 </div>
               </div>
 
@@ -169,8 +172,8 @@
     </div>
     <div id="view">
       <fieldset style="margin-left: 2rem; margin-right: 2rem;" class="form-group border p-3">
-        <legend style="color: green; font-size: 26px" class="w-auto px-2">Farmers Details Table</legend>
-        <table id="dynamicTable" class="table row-border hover table-responsive table-bordered" style="width: 96%;">
+        <legend class="w-auto px-2">Farmers Details Table</legend>
+        <table id="dynamicTable" class="table row-border hover table-responsive table-bordered" style="width: 95%; display: table; margin-bottom: 2rem;">
 
           <thead>
           <th>Sl No.</th>
@@ -199,13 +202,43 @@
             <td >Not Found</td>
             <td>Not Found</td>
             <td><a href="javascript:void(0)" (click)="showBankDetails(farmer.bank, farmer.name)">{{farmer.bank.accountNumber}}</a></td>
-            <td><button class="btn btn-warning fa fa-eye"></button></td>
-            <td><button type="button" (click)="editFarmer(farmer.id)" class="btn btn-primary fa fa-edit"></button>&nbsp;
-              <button type="button" (click)="deleteFarmer(farmer.id)" class="btn btn-danger fa fa-trash"></button>
+            <td><button class="btn btn-icon-only btn-facebook fa fa-eye" style="color: black"></button></td>
+            <td><button (click)="editFarmer(farmer.id)" class="btn btn-icon-only btn-facebook" type="button" aria-label="edit button" title="editButton"><span aria-hidden="true" class="fa fa-pencil"></span></button>&nbsp;&nbsp;
+            <button (click)="deleteFarmer(farmer.id)" class="btn btn-icon-only btn-facebook" type="button" aria-label="delete button" title="deleteButton"><span aria-hidden="true" style="color: #da3b3b" class="fa fa-trash"></span></button>
             </td>
           </tr>
           </tbody>
+
         </table>
+
+        <div class="col-md-3 paginationPage">
+          <nav aria-label="Products page navigation">
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0)">Previous</a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="javascript:void(0)">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0)">2</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0)">3</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0)">4</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0)">5</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0)">Next</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
       </fieldset>
     </div>
   </div>
