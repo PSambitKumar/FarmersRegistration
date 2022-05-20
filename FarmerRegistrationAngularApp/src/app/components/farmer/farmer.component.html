@@ -32,7 +32,13 @@
               <div class="col-sm">
                 <div class="col-md-12">
                   <label for="name" class="form-label">Farmer Name</label>
-                  <input [(ngModel)]="farmerBean.name" type="text"  class="form-control" id="name" name="name" style="background-color: #f2f2f2" placeholder="Enter FarmerBean's Name" required>
+                  <input #name="ngModel" [(ngModel)]="farmerBean.name" type="text"  class="form-control" maxlength="30" id="name" name="name" style="background-color: #f2f2f2" placeholder="Enter Farmer's Name" required>
+                  <div id="nameAlert" class="custom-alert"></div>
+<!--                 <span *ngIf="name.invalid && (name.dirty || name.touched)">-->
+<!--                    <span  class="custom-alert" *ngIf="name.errors?.['required']">-->
+<!--                      Name is required.-->
+<!--                    </span>-->
+<!--                  </span>-->
                 </div>
               </div>
 
@@ -40,13 +46,15 @@
                 <div class="col-md-12">
                   <label for="fathersName" class="form-label">Father's Name</label>
                   <input [(ngModel)]="farmerBean.fathersName" type="text" class="form-control" id="fathersName" name="fathersName" style="background-color: #f2f2f2" placeholder="Enter Father's Name" required>
+                  <div id="fathersNameAlert" class="custom-alert"></div>
                 </div>
               </div>
 
               <div class="col-sm">
                 <div class="col-md-12">
                   <label for="age" class="form-label">Age</label>
-                  <input [(ngModel)]="farmerBean.age" type="number" class="form-control" id="age" name="age" style="background-color: #f2f2f2" placeholder="Enter Age" required>
+                  <input [(ngModel)]="farmerBean.age" type="number" maxlength="2" class="form-control" id="age" name="age" style="background-color: #f2f2f2" placeholder="Enter Age" required>
+                  <div id="ageAlert" class="custom-alert"></div>
                 </div>
               </div>
 
@@ -62,6 +70,7 @@
                       <input [(ngModel)]="farmerBean.gender" class="form-check-input" type="radio"  id="female" name="gender" style="background-color: #f2f2f2" value="female">
                       <label class="form-check-label" for="female">Female</label>
                     </div>
+                    <div id="genderAlert" class="custom-alert"></div>
                   </div>
                 </div>
               </div>
@@ -74,20 +83,14 @@
                   <select [(ngModel)]="farmerBean.relation" class="custom-select my-1 mr-sm-2"  aria-label="Default select example" style="background-color: #f2f2f2" id="relation" name="relation">
                     <option selected value="Self">Self</option>
                   </select>
+                  <div id="relationAlert" class="custom-alert"></div>
                 </div>
               </div>
 
               <div class="col-sm">
                 <div class="col-md-12">
-                  <label for="bankName" class="form-label">Bank Name</label>
-                  <select [(ngModel)]="farmerBean.bank" class="custom-select my-1 mr-sm-2"  aria-label="Default select example" style="background-color: #f2f2f2" id="bankName" name="bankName">
-                    <option selected value="0">Select</option>
-                    <option value="State Bank of India">State Bank of India</option>
-                    <option value="Bank of Baroda">Bank of Baroda</option>
-                    <option value="Axis Bank">Axis Bank</option>
-                    <option value="Uco Bank">Uco Bank</option>
-                    <option value="HDFC Bank">HDFC Bank</option>
-                  </select>
+                  <label for="accountNumber" class="form-label">Account Number</label>
+                  <input [(ngModel)]="farmerBean.accountNumber" type="text" class="form-control" id="accountNumber" style="background-color: #f2f2f2" name="accountNumber" placeholder="Enter  Account Number" required>
                 </div>
               </div>
 
@@ -100,8 +103,16 @@
 
               <div class="col-sm">
                 <div class="col-md-12">
-                  <label for="accountNumber" class="form-label">Account Number</label>
-                  <input [(ngModel)]="farmerBean.accountNumber" type="text" class="form-control" id="accountNumber" style="background-color: #f2f2f2" name="accountNumber" placeholder="Enter  Account Number" required>
+                  <label for="bankName" class="form-label">Bank Name</label>
+                  <input [(ngModel)]="farmerBean.bank" type="text"  class="form-control" id="bankName" style="background-color: #f2f2f2" name="bankName" placeholder="Enter Bank Name" required>
+                  <!--                  <select [(ngModel)]="farmerBean.bank" class="custom-select my-1 mr-sm-2"  aria-label="Default select example" style="background-color: #f2f2f2" id="bankName" name="bankName">-->
+<!--                    <option selected value="0">Select</option>-->
+<!--                    <option value="State Bank of India">State Bank of India</option>-->
+<!--                    <option value="Bank of Baroda">Bank of Baroda</option>-->
+<!--                    <option value="Axis Bank">Axis Bank</option>-->
+<!--                    <option value="Uco Bank">Uco Bank</option>-->
+<!--                    <option value="HDFC Bank">HDFC Bank</option>-->
+<!--                  </select>-->
                 </div>
               </div>
 

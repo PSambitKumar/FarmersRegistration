@@ -7,19 +7,22 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog
 import {ModalService} from "../../services/modal.service";
 import {Bank} from "../../models/bank";
 import {BankModalComponent} from "../../modalComponents/bank-modal/bank-modal.component";
+import {ValidationService} from "../../services/validation.service";
+import {ThisReceiver} from "@angular/compiler";
 
 @Component({
   selector: 'app-farmer',
   templateUrl: './farmer.component.html',
   styleUrls: ['./farmer.component.css']
 })
+
 export class FarmerComponent implements OnInit{
 
   farmerBean : FarmerBean = new FarmerBean();
   farmer : Farmer = new Farmer();
   farmerList : Farmer[] = [];
-
-  constructor(private farmerService : FarmerService, private modalService : ModalService, public matDialog: MatDialog) { }
+  response : any;
+  constructor(private farmerService : FarmerService, private modalService : ModalService, public matDialog: MatDialog, private validationService : ValidationService) { }
 
   ngOnInit(): void {
     this.hideUniqueIdInput();
@@ -28,14 +31,42 @@ export class FarmerComponent implements OnInit{
   }
 
   // Methods Part
+
   farmerForm(){
+    var alphaRegx = /^[a-z A-Z.]*$/;
     console.log(this.farmerBean);
     console.log("Inside FarmerBean Form Submit-------------->>");
+
+      this.response = this.validationService.validateName(this.farmerBean.name, "#name", "#nameAlert");
+      this.response = this.validationService.validateName(this.farmerBean.fathersName, "#fathersName", "#fathersNameAlert");
+      this.response = this.validationService.validateAge(this.farmerBean.age, "#age", "#ageAlert");
+      this.response = this.validationService.validateRadio(this.farmerBean.gender, "#male", "#female", "#genderAlert");
+
+    // if (this.response == null){
+    //   this.response = this.validationService.validateName(this.farmerBean.name, "#name", "#nameAlert");
+    //   if (this.response != "Valid"){
+    //     this.response = null;
+    //   }
+    //   if (this.response == "Valid"){
+    //       this.response = this.validationService.validateName(this.farmerBean.fathersName, "#fathersName", "#fathersNameAlert");
+    //       console.log(this.response);
+    //       this.response = null;
+    //   }
+    // }
+
+
+    // if (this.response == "Valid"){
+    //   this.response = this.validationService.validateName(this.farmerBean.name, "#name", "#nameAlert");
+    //   if (this.response == "Valid"){
+    //     this.response = this.validationService.validateAge(this.farmerBean.age, "#age", "#ageAlert");
+    //   }
+    // }
+
     this.farmerService.createFarmer(this.farmerBean).subscribe(data => {
       console.log(data);
       console.log("Resposnse Data : " + data);//Check Difference In Console
       this.farmer = data;
-      console.log(this.farmer)
+      console.log(this.farmer);
     });
   }
 
@@ -44,6 +75,18 @@ export class FarmerComponent implements OnInit{
     this.farmerService.getFarmerList().subscribe(data => {
       this.farmerList = data;
       console.log(this.farmerList);
+
+      // Iterator to Print Each Object of a List
+      for (const datum of data) {
+        console.log("Printing Each Farmer Object Data--------------->>");
+        console.log(datum);
+      }
+
+      // Iterator to Print Each Object of a List
+      for (const farmerListElement of this.farmerList) {
+        console.log("Printing Each Farmer Object--------------->>");
+        console.log(farmerListElement);
+      }
     })
   }
 
@@ -84,7 +127,6 @@ export class FarmerComponent implements OnInit{
     });
   }
 
-  // JQuery Part
   // For Hiding of Unique Id Inouts
   hideUniqueIdInput() {
     $('#id1').hide();

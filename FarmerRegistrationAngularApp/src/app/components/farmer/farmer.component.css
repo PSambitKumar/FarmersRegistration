@@ -23,8 +23,18 @@ label{
 .fa-leaf{
   color: #25b406;
 }
+#name{
+  text-transform: capitalize;
+}
 a{
   color: blue;
+}
+.custom-alert{
+  color: #f30808;
+  font-size: small;
+  font-family: inherit;
+  margin-top: 5px;
+  margin-left: 9px;
 }
 .logoBrand{
   font-size: 20px;
@@ -170,13 +180,19 @@ fieldset{
   font-family: "Yu Gothic UI Semibold";
 }
 #btnSubmit{
+  /*color: white;*/
+  /*border: none;*/
   margin-left: 30rem;
   width: 10%;
   margin-right: 10px;
+  /*background: #1aa81a;*/
 }
 #btnReset{
+  /*color: white;*/
+  /*border: none;*/
   width: 10%;
   margin-right: 2rem;
+  /*background: #13a9c4;*/
 }
 table{
   margin-left: 2rem;
