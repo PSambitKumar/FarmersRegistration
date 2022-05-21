@@ -21,6 +21,10 @@ export class FarmerService {
     return this.httpClient.get<Farmer[]>(`${this.baseUrl + "/getFarmerList"}`);
   }
 
+  getBankDetailsUsingIFSC(ifscCode : any) : Observable<any>{
+    return this.httpClient.get<any>(`${this.baseUrl + "/getBankUsingIFSCCode/"}` + ifscCode)
+  }
+
   // getRelationList() : Observable<Relation[]>{
   //   return this.httpClient.get<Relation[]>(`${this.baseUrl + "/relationList"}`);
   // }

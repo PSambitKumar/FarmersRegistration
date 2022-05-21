@@ -98,7 +98,7 @@
               <div class="col-sm">
                 <div class="col-md-12">
                   <label for="ifscCode" class="form-label">IFSC Code</label>
-                  <input [(ngModel)]="farmerBean.ifscCode" type="text"  class="form-control" id="ifscCode" style="background-color: #f2f2f2" name="ifscCode" placeholder="Enter IFSC Code" required>
+                  <input #ifscCode (blur)="checkIFSCCode(ifscCode.value)" [(ngModel)]="farmerBean.ifscCode" type="text"  class="form-control" id="ifscCode" style="background-color: #f2f2f2" name="ifscCode" placeholder="Enter IFSC Code" required>
                 </div>
               </div>
 

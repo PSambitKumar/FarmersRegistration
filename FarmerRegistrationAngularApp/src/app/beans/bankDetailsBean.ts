@@ -1,0 +1,19 @@
+export class BankDetailsBean{
+  MICR : any;
+  BRANCH : any;
+  ADDRESS : any;
+  STATE : any;
+  CONTACT : any;
+   UPI : any;
+   RTGS : any;
+   CITY : any;
+   CENTRE : any;
+   DISTRICT : any;
+   NEFT : any;
+   IMPS : any;
+   SWIFT : any;
+   ISO3166 : any;
+   BANK : any;
+   BANKCODE : any;
+   IFSC : any;
+}

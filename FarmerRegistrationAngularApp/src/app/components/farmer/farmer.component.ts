@@ -9,6 +9,7 @@ import {Bank} from "../../models/bank";
 import {BankModalComponent} from "../../modalComponents/bank-modal/bank-modal.component";
 import {ValidationService} from "../../services/validation.service";
 import {ThisReceiver} from "@angular/compiler";
+import {BankDetailsBean} from "../../beans/bankDetailsBean";
 
 @Component({
   selector: 'app-farmer',
@@ -21,7 +22,9 @@ export class FarmerComponent implements OnInit{
   farmerBean : FarmerBean = new FarmerBean();
   farmer : Farmer = new Farmer();
   farmerList : Farmer[] = [];
+  bankDetailsBean : BankDetailsBean = new BankDetailsBean();
   response : any;
+
   constructor(private farmerService : FarmerService, private modalService : ModalService, public matDialog: MatDialog, private validationService : ValidationService) { }
 
   ngOnInit(): void {
@@ -71,6 +74,16 @@ export class FarmerComponent implements OnInit{
       this.farmer = data;
       console.log(this.farmer);
     });
+  }
+
+  // Chcek IFSC Code
+  checkIFSCCode(ifscCode : any){
+    console.log("IFSC Code : " + ifscCode);
+    this.farmerService.getBankDetailsUsingIFSC(ifscCode).subscribe(data => {
+      this.bankDetailsBean = data;
+      console.log("Bank Details Received.");
+      console.log(this.bankDetailsBean);
+    })
   }
 
   getFarmerList(){

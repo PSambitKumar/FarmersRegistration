@@ -1,5 +1,7 @@
 package com.sambit.Controller;
 
+import com.google.gson.Gson;
+import com.sambit.Bean.BankDetailsBean;
 import com.sambit.Bean.FarmerBean;
 import com.sambit.Model.Acknowledge;
 import com.sambit.Model.Bank;
@@ -11,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Collection;
 import java.util.List;
@@ -55,6 +58,22 @@ public class FarmersRegistrationAngularController {
     public List<Farmer> getFarmerList(){
         System.out.println("Inside Get Farmers List---------------->>");
         return mainServiceAngular.getFarmerList();
+    }
+
+
+    @GetMapping(value = "/getBankUsingIFSCCode/{ifscCode}")
+    public ResponseEntity<BankDetailsBean> getBankUsingIFSCCode(@PathVariable("ifscCode")String ifscCode){
+        System.out.println("Inside Get Bank Details Using IFSC Code----------------------->>");
+        System.out.println("IFSC Code : " + ifscCode);
+        Gson gson = new Gson();
+        RestTemplate restTemplate = new RestTemplate();
+        String bankDetails = restTemplate.getForObject("https://ifsc.razorpay.com/"+ifscCode, String.class);
+        System.out.println(bankDetails);
+
+        //        Converting JSON String to ModeL Class
+        BankDetailsBean bankDetailsBean = gson.fromJson(bankDetails, BankDetailsBean.class);
+        System.out.println("Bank Details are : " + bankDetailsBean);
+        return ResponseEntity.ok(bankDetailsBean);
     }
 
 
