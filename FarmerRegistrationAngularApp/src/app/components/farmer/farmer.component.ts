@@ -33,7 +33,7 @@ export class FarmerComponent implements OnInit{
   // Methods Part
 
   farmerForm(){
-    var alphaRegx = /^[a-z A-Z.]*$/;
+
     console.log(this.farmerBean);
     console.log("Inside FarmerBean Form Submit-------------->>");
 
@@ -41,6 +41,9 @@ export class FarmerComponent implements OnInit{
       this.response = this.validationService.validateName(this.farmerBean.fathersName, "#fathersName", "#fathersNameAlert");
       this.response = this.validationService.validateAge(this.farmerBean.age, "#age", "#ageAlert");
       this.response = this.validationService.validateRadio(this.farmerBean.gender, "#male", "#female", "#genderAlert");
+      this.response = this.validationService.validateDropdown(this.farmerBean.relation, "#relation", "#relationAlert");
+      this.response = this.validationService.validateBankAccountNumber(this.farmerBean.accountNumber, "#accountNumber", "#accountNumberAlert");
+
 
     // if (this.response == null){
     //   this.response = this.validationService.validateName(this.farmerBean.name, "#name", "#nameAlert");
