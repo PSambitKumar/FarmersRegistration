@@ -40,13 +40,16 @@ export class FarmerComponent implements OnInit{
     console.log(this.farmerBean);
     console.log("Inside FarmerBean Form Submit-------------->>");
 
-      this.response = this.validationService.validateName(this.farmerBean.name, "#name", "#nameAlert");
-      this.response = this.validationService.validateName(this.farmerBean.fathersName, "#fathersName", "#fathersNameAlert");
-      this.response = this.validationService.validateAge(this.farmerBean.age, "#age", "#ageAlert");
-      this.response = this.validationService.validateRadio(this.farmerBean.gender, "#male", "#female", "#genderAlert");
-      this.response = this.validationService.validateDropdown(this.farmerBean.relation, "#relation", "#relationAlert");
-      this.response = this.validationService.validateBankAccountNumber(this.farmerBean.accountNumber, "#accountNumber", "#accountNumberAlert");
+      this.response = this.validationService.validateDropdown(this.farmerBean.uniqueId, "#uniqueId", "#uniqueIdAlert");
+      this.response = this.validationService.validateMobileNumber(this.farmerBean.mobile, "#mobile", "#mobileAlert");
+      this.response = this.validationService.validateName(this.farmerBean.bank, "#bankName", "#bankAlert");
       this.response = this.validationService.validateIFSCode(this.farmerBean.ifscCode, "#ifscCode", "#ifscAlert");
+      this.response = this.validationService.validateBankAccountNumber(this.farmerBean.accountNumber, "#accountNumber", "#accountNumberAlert");
+      this.response = this.validationService.validateRelationDropdown(this.farmerBean.relation, "#relation", "#relationAlert");
+      this.response = this.validationService.validateRadio(this.farmerBean.gender, "#male", "#female", "#genderAlert");
+      this.response = this.validationService.validateAge(this.farmerBean.age, "#age", "#ageAlert");
+      this.response = this.validationService.validateName(this.farmerBean.fathersName, "#fathersName", "#fathersNameAlert");
+      this.response = this.validationService.validateName(this.farmerBean.name, "#name", "#nameAlert");
 
     // if (this.response == null){
     //   this.response = this.validationService.validateName(this.farmerBean.name, "#name", "#nameAlert");
@@ -83,6 +86,7 @@ export class FarmerComponent implements OnInit{
       this.farmerService.getBankDetailsUsingIFSC(ifscCode).subscribe(data => {
         this.bankDetailsBean = data;
         $('#bankName').val(this.bankDetailsBean.bank);
+        this.farmerBean.bank = this.bankDetailsBean.bank;
         console.log("Bank Details Received.");
         console.log(this.bankDetailsBean);
       })

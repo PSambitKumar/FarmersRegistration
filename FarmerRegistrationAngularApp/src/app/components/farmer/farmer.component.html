@@ -107,6 +107,7 @@
                 <div class="col-md-12">
                   <label for="bankName" class="form-label">Bank Name</label>
                   <input [(ngModel)]="farmerBean.bank" type="text"  class="form-control" id="bankName" style="background-color: #f2f2f2" name="bankName" placeholder="Enter Bank Name" required>
+                  <div id="bankAlert" class="custom-alert"></div>
                   <!--                  <select [(ngModel)]="farmerBean.bank" class="custom-select my-1 mr-sm-2"  aria-label="Default select example" style="background-color: #f2f2f2" id="bankName" name="bankName">-->
 <!--                    <option selected value="0">Select</option>-->
 <!--                    <option value="State Bank of India">State Bank of India</option>-->
@@ -124,7 +125,8 @@
               <div class="col-sm">
                 <div class="col-md-12">
                   <label for="mobile" class="form-label">Mobile Number</label>
-                  <input type="text" [(ngModel)]="farmerBean.mobile" class="form-control" id="mobile" style="background-color: #f2f2f2" name="mobile" placeholder="Enter Mobile Number" required>
+                  <input type="text" [(ngModel)]="farmerBean.mobile" maxlength="10" class="form-control" id="mobile" style="background-color: #f2f2f2" name="mobile" placeholder="Enter Mobile Number" required>
+                  <div id="mobileAlert" class="custom-alert"></div>
                 </div>
               </div>
 
@@ -137,6 +139,7 @@
                     <option value="2">Janadhaar Id</option>
                     <option value="3">Adhaar Id</option>
                   </select>
+                  <div id="uniqueIdAlert" class="custom-alert"></div>
                 </div>
               </div>
 
