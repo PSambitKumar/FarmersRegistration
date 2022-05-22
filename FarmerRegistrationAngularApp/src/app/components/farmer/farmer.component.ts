@@ -46,7 +46,7 @@ export class FarmerComponent implements OnInit{
       this.response = this.validationService.validateRadio(this.farmerBean.gender, "#male", "#female", "#genderAlert");
       this.response = this.validationService.validateDropdown(this.farmerBean.relation, "#relation", "#relationAlert");
       this.response = this.validationService.validateBankAccountNumber(this.farmerBean.accountNumber, "#accountNumber", "#accountNumberAlert");
-
+      this.response = this.validationService.validateIFSCode(this.farmerBean.ifscCode, "#ifscCode", "#ifscAlert");
 
     // if (this.response == null){
     //   this.response = this.validationService.validateName(this.farmerBean.name, "#name", "#nameAlert");
@@ -79,11 +79,14 @@ export class FarmerComponent implements OnInit{
   // Chcek IFSC Code
   checkIFSCCode(ifscCode : any){
     console.log("IFSC Code : " + ifscCode);
-    this.farmerService.getBankDetailsUsingIFSC(ifscCode).subscribe(data => {
-      this.bankDetailsBean = data;
-      console.log("Bank Details Received.");
-      console.log(this.bankDetailsBean);
-    })
+    if (this.validationService.validateIFSCode(ifscCode, "#ifscCode", "#ifscAlert") == "Valid"){
+      this.farmerService.getBankDetailsUsingIFSC(ifscCode).subscribe(data => {
+        this.bankDetailsBean = data;
+        $('#bankName').val(this.bankDetailsBean.bank);
+        console.log("Bank Details Received.");
+        console.log(this.bankDetailsBean);
+      })
+    }
   }
 
   getFarmerList(){
