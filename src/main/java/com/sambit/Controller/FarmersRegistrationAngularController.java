@@ -3,12 +3,14 @@ package com.sambit.Controller;
 import com.google.gson.Gson;
 import com.sambit.Bean.BankDetailsBean;
 import com.sambit.Bean.FarmerBean;
+import com.sambit.Bean.ResponseBean;
 import com.sambit.Model.Acknowledge;
 import com.sambit.Model.Bank;
 import com.sambit.Model.Farmer;
 import com.sambit.Model.Relation;
 import com.sambit.Service.MainService;
 import com.sambit.Service.MainServiceAngular;
+import com.sambit.Validation.AadharValidation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -74,6 +76,18 @@ public class FarmersRegistrationAngularController {
         BankDetailsBean bankDetailsBean = gson.fromJson(bankDetails, BankDetailsBean.class);
         System.out.println("Bank Details are : " + bankDetailsBean);
         return ResponseEntity.ok(bankDetailsBean);
+    }
+
+    @GetMapping(value = "/getValidateAadhar/{aadharId}")
+    public ResponseEntity<ResponseBean> getValidateAadhar(@PathVariable("aadharId")String aadharId, ResponseBean responseBean){
+        System.out.println("Inside Get Validate Aadhar Id--------------->>");
+        System.out.println(aadharId);
+        if (AadharValidation.validateAadhar(aadharId)){
+            responseBean.setStatus("Success");
+        }else {
+            responseBean.setStatus("Failed");
+        }
+        return ResponseEntity.ok(responseBean);
     }
 
 

@@ -23,7 +23,16 @@ export class FarmerComponent implements OnInit{
   farmer : Farmer = new Farmer();
   farmerList : Farmer[] = [];
   bankDetailsBean : BankDetailsBean = new BankDetailsBean();
-  response : any;
+  // response1 : any;
+  // response2 : any;
+  // response3 : any;
+  // response4 : any;
+  // response5 : any;
+  // response6 : any;
+  // response7 : any;
+  // response8: any;
+  // response9 : any;
+  // response10 : any;
 
   constructor(private farmerService : FarmerService, private modalService : ModalService, public matDialog: MatDialog, private validationService : ValidationService) { }
 
@@ -40,43 +49,38 @@ export class FarmerComponent implements OnInit{
     console.log(this.farmerBean);
     console.log("Inside FarmerBean Form Submit-------------->>");
 
-      this.response = this.validationService.validateDropdown(this.farmerBean.uniqueId, "#uniqueId", "#uniqueIdAlert");
-      this.response = this.validationService.validateMobileNumber(this.farmerBean.mobile, "#mobile", "#mobileAlert");
-      this.response = this.validationService.validateName(this.farmerBean.bank, "#bankName", "#bankAlert");
-      this.response = this.validationService.validateIFSCode(this.farmerBean.ifscCode, "#ifscCode", "#ifscAlert");
-      this.response = this.validationService.validateBankAccountNumber(this.farmerBean.accountNumber, "#accountNumber", "#accountNumberAlert");
-      this.response = this.validationService.validateRelationDropdown(this.farmerBean.relation, "#relation", "#relationAlert");
-      this.response = this.validationService.validateRadio(this.farmerBean.gender, "#male", "#female", "#genderAlert");
-      this.response = this.validationService.validateAge(this.farmerBean.age, "#age", "#ageAlert");
-      this.response = this.validationService.validateName(this.farmerBean.fathersName, "#fathersName", "#fathersNameAlert");
-      this.response = this.validationService.validateName(this.farmerBean.name, "#name", "#nameAlert");
+    // this.response1 = this.validationService.validateDropdown(this.farmerBean.uniqueId, "#uniqueId", "#uniqueIdAlert", this.farmerBean.acknowledge, this.farmerBean.janAdhaar, this.farmerBean.aadhar);
+    // this.response2 = this.validationService.validateMobileNumber(this.farmerBean.mobile, "#mobile", "#mobileAlert");
+    // this.response3 = this.validationService.validateName(this.farmerBean.bank, "#bankName", "#bankAlert");
+    // this.response4 = this.validationService.validateIFSCode(this.farmerBean.ifscCode, "#ifscCode", "#ifscAlert");
+    // this.response5 = this.validationService.validateBankAccountNumber(this.farmerBean.accountNumber, "#accountNumber", "#accountNumberAlert");
+    // this.response6 = this.validationService.validateRelationDropdown(this.farmerBean.relation, "#relation", "#relationAlert");
+    // this.response7 = this.validationService.validateRadio(this.farmerBean.gender, "#male", "#female", "#genderAlert");
+    // this.response8 = this.validationService.validateAge(this.farmerBean.age, "#age", "#ageAlert");
+    // this.response9 = this.validationService.validateName(this.farmerBean.fathersName, "#fathersName", "#fathersNameAlert");
+    // this.response10 = this.validationService.validateName(this.farmerBean.name, "#name", "#nameAlert");
 
-    // if (this.response == null){
-    //   this.response = this.validationService.validateName(this.farmerBean.name, "#name", "#nameAlert");
-    //   if (this.response != "Valid"){
-    //     this.response = null;
-    //   }
-    //   if (this.response == "Valid"){
-    //       this.response = this.validationService.validateName(this.farmerBean.fathersName, "#fathersName", "#fathersNameAlert");
-    //       console.log(this.response);
-    //       this.response = null;
-    //   }
-    // }
+    // console.log("Valid or Invalid Data : ");
+    // console.log(this.response1 + "," + this.response2 + "," + this.response3 + "," + this.response4 + "," + this.response5 + "," + this.response6 + "," + this.response7 + "," + this.response8 + "," + this.response9 + "," + this.response10);
 
 
-    // if (this.response == "Valid"){
-    //   this.response = this.validationService.validateName(this.farmerBean.name, "#name", "#nameAlert");
-    //   if (this.response == "Valid"){
-    //     this.response = this.validationService.validateAge(this.farmerBean.age, "#age", "#ageAlert");
-    //   }
-    // }
-
-    this.farmerService.createFarmer(this.farmerBean).subscribe(data => {
-      console.log(data);
-      console.log("Resposnse Data : " + data);//Check Difference In Console
-      this.farmer = data;
-      console.log(this.farmer);
-    });
+    if (this.validationService.validateDropdown(this.farmerBean.uniqueId, "#uniqueId", "#uniqueIdAlert", this.farmerBean.acknowledge, this.farmerBean.janAdhaar, this.farmerBean.aadhar) == "Valid" &&
+      this.validationService.validateMobileNumber(this.farmerBean.mobile, "#mobile", "#mobileAlert") == "Valid" &&
+      this.validationService.validateName(this.farmerBean.bank, "#bankName", "#bankAlert") == "Valid" &&
+      this.validationService.validateIFSCode(this.farmerBean.ifscCode, "#ifscCode", "#ifscAlert") == "Valid" &&
+      this.validationService.validateBankAccountNumber(this.farmerBean.accountNumber, "#accountNumber", "#accountNumberAlert") == "Valid" &&
+      this.validationService.validateRelationDropdown(this.farmerBean.relation, "#relation", "#relationAlert") == "Valid" &&
+      this.validationService.validateRadio(this.farmerBean.gender, "#male", "#female", "#genderAlert") == "Valid" &&
+      this.validationService.validateAge(this.farmerBean.age, "#age", "#ageAlert") == "Valid" &&
+      this.validationService.validateName(this.farmerBean.fathersName, "#fathersName", "#fathersNameAlert") == "Valid" &&
+      this.validationService.validateName(this.farmerBean.name, "#name", "#nameAlert") == "Valid"){
+      this.farmerService.createFarmer(this.farmerBean).subscribe(data => {
+        console.log(data);
+        console.log("Resposnse Data : " + data);//Check Difference In Console
+        this.farmer = data;
+        console.log(this.farmer);
+      });
+    }
   }
 
   // Chcek IFSC Code
@@ -93,6 +97,11 @@ export class FarmerComponent implements OnInit{
     }
   }
 
+  // Check Aadhar Id
+  checkAadharId(aadharId : any){
+    console.log(aadharId);
+    this.validationService.validateAadhar(aadharId, "#adhaarId", "#aadharAlert");
+  }
   getFarmerList(){
     console.log("Inside Get Farmers List-------------->>")
     this.farmerService.getFarmerList().subscribe(data => {

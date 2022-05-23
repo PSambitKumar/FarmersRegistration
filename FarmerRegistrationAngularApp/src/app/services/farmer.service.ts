@@ -25,6 +25,10 @@ export class FarmerService {
     return this.httpClient.get<any>(`${this.baseUrl + "/getBankUsingIFSCCode/"}` + ifscCode)
   }
 
+  getValidateAadharId(aadharId : any) : Observable<any>{
+    return this.httpClient.get<any>(`${this.baseUrl + "/getValidateAadhar/"}` + aadharId);
+  }
+
   // getRelationList() : Observable<Relation[]>{
   //   return this.httpClient.get<Relation[]>(`${this.baseUrl + "/relationList"}`);
   // }

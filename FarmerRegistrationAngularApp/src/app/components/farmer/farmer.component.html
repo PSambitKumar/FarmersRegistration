@@ -98,7 +98,7 @@
               <div class="col-sm">
                 <div class="col-md-12">
                   <label for="ifscCode" class="form-label">IFSC Code</label>
-                  <input #ifscCode (blur)="checkIFSCCode(ifscCode.value)" [(ngModel)]="farmerBean.ifscCode" type="text"  class="form-control" id="ifscCode" style="background-color: #f2f2f2" name="ifscCode" placeholder="Enter IFSC Code" required>
+                  <input #ifscCode (keyup)="checkIFSCCode(ifscCode.value)" [(ngModel)]="farmerBean.ifscCode" type="text"  class="form-control" id="ifscCode" style="background-color: #f2f2f2" name="ifscCode" placeholder="Enter IFSC Code" required>
                   <div id="ifscAlert" class="custom-alert"></div>
                 </div>
               </div>
@@ -147,15 +147,18 @@
                 <div class="col-md-12">
                   <div id="id1">
                     <label for="ackId" class="form-label">Acknowledge ID</label>
-                    <input [(ngModel)]="farmerBean.acknowledge" type="text" class="form-control" id="ackId" style="background-color: #f2f2f2" name="ackId" placeholder="Enter Acknowledge ID" required>
+                    <input [(ngModel)]="farmerBean.acknowledge" type="text" maxlength="15" class="form-control" id="ackId" style="background-color: #f2f2f2" name="ackId" placeholder="Enter Acknowledge ID" required>
+                    <div id="ackAlert" class="custom-alert"></div>
                   </div>
                   <div id="id2">
                     <label for="janadhaarId" class="form-label">Janadhaar ID</label>
-                    <input [(ngModel)]="farmerBean.janAdhaar" type="text" class="form-control" id="janadhaarId" style="background-color: #f2f2f2" name="janadhaarId" placeholder="Enter Janadhaar ID" required>
+                    <input [(ngModel)]="farmerBean.janAdhaar" maxlength="10" type="text" class="form-control" id="janadhaarId" style="background-color: #f2f2f2" name="janadhaarId" placeholder="Enter Janadhaar ID" required>
+                    <div id="janAlert" class="custom-alert"></div>
                   </div>
                   <div id="id3">
                     <label for="adhaarId" class="form-label">Adhaar ID</label>
-                    <input [(ngModel)]="farmerBean.aadhar" type="text" class="form-control" id="adhaarId" style="background-color: #f2f2f2" name="adhaarId" placeholder="Enter Adhaar ID" required>
+                    <input #aadhar [(ngModel)]="farmerBean.aadhar" (keyup)="checkAadharId(aadhar.value)" maxlength="12" type="text" class="form-control" id="adhaarId" style="background-color: #f2f2f2" name="adhaarId" placeholder="Enter Adhaar ID" required>
+                    <div id="aadharAlert" class="custom-alert"></div>
                   </div>
                 </div>
               </div>
