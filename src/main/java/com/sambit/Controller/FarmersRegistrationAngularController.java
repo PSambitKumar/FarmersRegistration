@@ -10,6 +10,7 @@ import com.sambit.Model.Farmer;
 import com.sambit.Model.Relation;
 import com.sambit.Service.MainService;
 import com.sambit.Service.MainServiceAngular;
+import com.sambit.Utils.RecieveData;
 import com.sambit.Validation.AadharValidation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,7 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(value = "/farmer/v1")
 public class FarmersRegistrationAngularController {
+    RecieveData recieveData = new RecieveData();
 
     @Autowired
     private MainService mainService;
@@ -75,6 +77,10 @@ public class FarmersRegistrationAngularController {
         //        Converting JSON String to ModeL Class
         BankDetailsBean bankDetailsBean = gson.fromJson(bankDetails, BankDetailsBean.class);
         System.out.println("Bank Details are : " + bankDetailsBean);
+
+        String result = RecieveData.data(ResponseEntity.ok(bankDetailsBean));
+        System.out.println("Recieved from Received Data : " + result);
+
         return ResponseEntity.ok(bankDetailsBean);
     }
 
