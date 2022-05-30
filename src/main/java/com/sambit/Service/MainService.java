@@ -17,4 +17,5 @@ public interface MainService {
     Farmer findFarmerById(int id);
     List<Bank> findAllBankList();
     List<Relation> findAllRelationList();
+
 }

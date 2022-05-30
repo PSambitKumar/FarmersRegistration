@@ -60,4 +60,26 @@ public class FarmerRegistrationDaoImplAngular implements FarmerRegistrationDaoAn
 		entityManager.persist(farmer);
 		return farmer;
 	}
+
+	@Override
+	@Transactional
+	public String deleteFarmerById(int id) {
+		String response = null;
+		Farmer farmer = entityManager.find(Farmer.class, id);
+		System.out.println("Farmer By Id : " + farmer);
+		if (farmer != null){
+			entityManager.remove(farmer);
+			response = "Success";
+		}else {
+			response = "Fail";
+		}
+		List<Farmer> farmerList = entityManager.createQuery("SELECT farmer FROM Farmer farmer", Farmer.class).getResultList();
+		System.out.println("New Farmer List : " + farmerList);
+		return response;
+	}
+
+	@Override
+	public Farmer getFarmerById(int id) {
+		return entityManager.find(Farmer.class, id);
+	}
 }

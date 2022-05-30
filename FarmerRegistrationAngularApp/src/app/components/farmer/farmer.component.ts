@@ -8,8 +8,10 @@ import {ModalService} from "../../services/modal.service";
 import {Bank} from "../../models/bank";
 import {BankModalComponent} from "../../modalComponents/bank-modal/bank-modal.component";
 import {ValidationService} from "../../services/validation.service";
-import {ThisReceiver} from "@angular/compiler";
 import {BankDetailsBean} from "../../beans/bankDetailsBean";
+import {ResponseBean} from "../../beans/responseBean";
+import Swal from 'sweetalert2';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-farmer',
@@ -21,6 +23,7 @@ export class FarmerComponent implements OnInit{
 
   farmerBean : FarmerBean = new FarmerBean();
   farmer : Farmer = new Farmer();
+  responseBean : ResponseBean = new ResponseBean();
   farmerList : Farmer[] = [];
   bankDetailsBean : BankDetailsBean = new BankDetailsBean();
   // response1 : any;
@@ -34,7 +37,7 @@ export class FarmerComponent implements OnInit{
   // response9 : any;
   // response10 : any;
 
-  constructor(private farmerService : FarmerService, private modalService : ModalService, public matDialog: MatDialog, private validationService : ValidationService) { }
+  constructor(private farmerService : FarmerService, private modalService : ModalService, public matDialog: MatDialog, private validationService : ValidationService, private router : Router) { }
 
   ngOnInit(): void {
     this.hideUniqueIdInput();
@@ -74,12 +77,29 @@ export class FarmerComponent implements OnInit{
       this.validationService.validateName(this.farmerBean.bank, "#bankName", "#bankAlert") == "Valid" &&
       this.validationService.validateMobileNumber(this.farmerBean.mobile, "#mobile", "#mobileAlert") == "Valid" &&
       this.validationService.validateDropdown(this.farmerBean.uniqueId, "#uniqueId", "#uniqueIdAlert", this.farmerBean.acknowledge, this.farmerBean.janAdhaar, this.farmerBean.aadhar) == "Valid"){
-      this.farmerService.createFarmer(this.farmerBean).subscribe(data => {
-        console.log(data);
-        console.log("Resposnse Data : " + data);//Check Difference In Console
-        this.farmer = data;
-        console.log(this.farmer);
-      });
+      Swal.fire({
+        title: 'Do you want to save the Data?',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Save',
+        denyButtonText: `Don't Save`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          this.farmerService.createFarmer(this.farmerBean).subscribe(data => {
+            console.log(data);
+            console.log("Resposnse Data : " + data);//Check Difference In Console
+            this.responseBean = data;
+            console.log(this.responseBean);
+            if (this.responseBean.status == "Success"){
+              this.router.navigate([""]);
+            }
+          });
+          Swal.fire('Data Saved Successfully!', '', 'success')
+        } else if (result.isDenied) {
+          Swal.fire('Failed To Save Data!', '', 'info')
+        }
+      })
     }
     // $('#farmerForm').trigger("reset");
   }
@@ -125,10 +145,48 @@ export class FarmerComponent implements OnInit{
 
   editFarmer(id : any){
     console.log("Farmer Id :" + id);
+    Swal.fire({
+      title: 'Do You Want to Edit?',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, Edit',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.farmerService.editFarmerById(id).subscribe(data => {
+          console.log(data);
+          this.farmer = data;
+          this.addFarmer();
+        })
+      }
+    })
   }
 
   deleteFarmer(id : any){
     console.log("Farmer Id :" + id);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, Delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.farmerService.deleteFarmerById(id).subscribe(data => {
+          console.log(data)
+          this.responseBean = data;
+          if (this.responseBean.status == "Success"){
+            location.reload();
+            // this.viewFarmer();
+          }
+        })
+        Swal.fire(
+          'Deleted!',
+          'Your Data Has Been Deleted!.',
+          'success'
+        )
+      }
+    });
   }
 
   showBankDetails(bank : Bank, name : any){

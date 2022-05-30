@@ -84,4 +84,6 @@ public class MainServiceImpl implements MainService {
     public List<Relation> findAllRelationList() {
         return relationRepository.findAll();
     }
+
+
 }

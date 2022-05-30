@@ -79,4 +79,14 @@ public class MainServiceImplAngular implements MainServiceAngular {
 	public List<Farmer> getFarmerList() {
 		return farmerRegistrationDaoAngular.findAllFarmerList();
 	}
+
+	@Override
+	public String deleteFarmerById(int id) {
+		return farmerRegistrationDaoAngular.deleteFarmerById(id);
+	}
+
+	@Override
+	public Farmer getFarmerById(int id) {
+		return farmerRegistrationDaoAngular.getFarmerById(id);
+	}
 }

@@ -50,13 +50,21 @@ public class FarmersRegistrationAngularController {
     }
 
     @PostMapping( "/createFarmer")
-    public ResponseEntity<Farmer> createEmployee(@RequestBody FarmerBean farmerBean){
+    public ResponseEntity<ResponseBean> createEmployee(@RequestBody FarmerBean farmerBean){
         System.out.println("Inside Create FarmerBean--------------->>");
         System.out.println(farmerBean);
         Farmer farmer = mainServiceAngular.createFarmer(farmerBean);
+        ResponseBean responseBean = null;
+        if (farmer.getId() != 0){
+            responseBean = new ResponseBean();
+            responseBean.setStatus("Success");
+        }else {
+            responseBean = new ResponseBean();
+            responseBean.setStatus("Fail");
+        }
 //        Farmer farmer  = mainService.findFarmerById(1);//Just Checking Full Data
         System.out.println(farmer);
-        return ResponseEntity.ok(farmer);
+        return ResponseEntity.ok(responseBean);
     }
 
     @ResponseBody
@@ -98,6 +106,27 @@ public class FarmersRegistrationAngularController {
         return ResponseEntity.ok(responseBean);
     }
 
+    @GetMapping(value = "/deleteFarmer/{id}")
+    public ResponseEntity<ResponseBean> deleteFarmer(@PathVariable(value = "id", required = false)int id){
+        System.out.println("Inside Delete Farmer Method---------------->>");
+        System.out.println("Farmer ID : " + id);
+        ResponseBean responseBean = null;
+        try {
+            String response  = mainServiceAngular.deleteFarmerById(id);
+            responseBean = new ResponseBean();
+            responseBean.setStatus(response);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return ResponseEntity.ok(responseBean);
+    }
 
+    @GetMapping(value = "/editFarmerById/{id}")
+    public ResponseEntity<Farmer> editFarmerById(@PathVariable(value = "id", required = false)int id){
+        System.out.println("Inside Edit Farmer Method--------------->>");
+        System.out.println("Farmer Id : " + id);
+        Farmer farmer = mainServiceAngular.getFarmerById(id);
+        return ResponseEntity.ok(farmer);
+    }
 
 }

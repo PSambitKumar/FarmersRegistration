@@ -10,4 +10,6 @@ public interface MainServiceAngular {
 
 	Farmer createFarmer(FarmerBean farmerBean);
 	List<Farmer> getFarmerList();
+	String deleteFarmerById(int id);
+	Farmer getFarmerById(int id);
 }

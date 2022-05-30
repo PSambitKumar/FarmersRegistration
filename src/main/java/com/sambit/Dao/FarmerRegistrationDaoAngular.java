@@ -13,4 +13,6 @@ public interface FarmerRegistrationDaoAngular {
 	Janadhaar saveJanadhaar(Janadhaar janadhaar);
 	Aadhar saveAadhar(Aadhar aadhar);
 	Farmer saveFarmer(Farmer farmer);
+	String deleteFarmerById(int id);
+	Farmer getFarmerById(int id);
 }
