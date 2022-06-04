@@ -176,8 +176,9 @@ export class FarmerComponent implements OnInit{
           console.log(data)
           this.responseBean = data;
           if (this.responseBean.status == "Success"){
-            location.reload();
+            // location.reload();
             // this.viewFarmer();
+            this.ngOnInit()
           }
         })
         Swal.fire(
