@@ -48,7 +48,6 @@ export class FarmerComponent implements OnInit{
   // Methods Part
 
   farmerForm(){
-
     console.log(this.farmerBean);
     console.log("Inside FarmerBean Form Submit-------------->>");
 
