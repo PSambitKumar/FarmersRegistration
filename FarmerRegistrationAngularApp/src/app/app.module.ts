@@ -12,13 +12,17 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {MatDialogModule} from "@angular/material/dialog";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BankModalComponent } from './modalComponents/bank-modal/bank-modal.component';
+import { TestComponent } from './components/test/test.component';
+import { ViewRelativesComponent } from './modalComponents/view-relatives-modal/view-relatives.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FarmerComponent,
     HomeComponent,
-    BankModalComponent
+    BankModalComponent,
+    TestComponent,
+    ViewRelativesComponent
   ],
   imports: [
     BrowserModule,

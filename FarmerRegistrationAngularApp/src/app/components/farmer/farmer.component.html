@@ -221,7 +221,7 @@
             <td >Not Found</td>
             <td>Not Found</td>
             <td><a href="javascript:void(0)" (click)="showBankDetails(farmer.bank, farmer.name)">{{farmer.bank.accountNumber}}</a></td>
-            <td><button class="btn btn-icon-only btn-facebook fa fa-eye" style="color: black"></button></td>
+            <td><button (click)="viewRelatives(farmer.relationList, farmer.name)" class="btn btn-icon-only btn-facebook fa fa-eye" style="color: black"></button></td>
             <td><button (click)="editFarmer(farmer.id)" class="btn btn-icon-only btn-facebook" type="button" aria-label="edit button" title="editButton"><span aria-hidden="true" class="fa fa-pencil"></span></button>&nbsp;&nbsp;
             <button (click)="deleteFarmer(farmer.id)" class="btn btn-icon-only btn-facebook" type="button" aria-label="delete button" title="deleteButton"><span aria-hidden="true" style="color: #da3b3b" class="fa fa-trash"></span></button>
             </td>

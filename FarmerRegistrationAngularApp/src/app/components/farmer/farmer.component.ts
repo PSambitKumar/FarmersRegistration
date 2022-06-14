@@ -12,6 +12,7 @@ import {BankDetailsBean} from "../../beans/bankDetailsBean";
 import {ResponseBean} from "../../beans/responseBean";
 import Swal from 'sweetalert2';
 import {Router} from "@angular/router";
+import {Relation} from "../../models/relation";
 
 @Component({
   selector: 'app-farmer',
@@ -201,6 +202,10 @@ export class FarmerComponent implements OnInit{
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  viewRelatives(relationList : Relation[], farmerName : any){
+    alert("Relation Lists Are : " + JSON.stringify(relationList) + ", Farmer Name : " + farmerName);
   }
 
   // openModal(){
