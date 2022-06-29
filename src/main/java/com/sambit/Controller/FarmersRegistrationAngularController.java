@@ -27,8 +27,6 @@ import java.util.List;
 @RequestMapping(value = "/farmer/v1")
 public class FarmersRegistrationAngularController {
 
-    RecieveData recieveData = new RecieveData();
-
     @Autowired
     private MainService mainService;
     @Autowired

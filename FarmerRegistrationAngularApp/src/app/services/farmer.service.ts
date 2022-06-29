@@ -27,7 +27,7 @@ export class FarmerService {
   }
 
   getBankDetailsUsingIFSC(ifscCode : any) : Observable<any>{
-    return this.httpClient.get<any>(`${this.baseUrl + "/getBankUsingIFSCCode/"}` + ifscCode)
+    return this.httpClient.get<any>(`${this.baseUrl + "/getBankUsingIFSCCode/"}` + ifscCode);
   }
 
   getValidateAadharId(aadharId : any) : Observable<any>{
