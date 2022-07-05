@@ -52,7 +52,7 @@ public class FarmersRegistrationAngularController {
         System.out.println("Inside Create FarmerBean--------------->>");
         System.out.println(farmerBean);
         Farmer farmer = mainServiceAngular.createFarmer(farmerBean);
-        ResponseBean responseBean = null;
+        ResponseBean responseBean;
         if (farmer.getId() != 0){
             responseBean = new ResponseBean();
             responseBean.setStatus("Success");

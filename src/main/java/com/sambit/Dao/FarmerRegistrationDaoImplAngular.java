@@ -61,6 +61,12 @@ public class FarmerRegistrationDaoImplAngular implements FarmerRegistrationDaoAn
 		return farmer;
 	}
 
+	@Transactional
+	@Override
+	public Farmer updateFarmer(Farmer farmer) {
+		return entityManager.merge(farmer);
+	}
+
 	@Override
 	@Transactional
 	public String deleteFarmerById(int id) {

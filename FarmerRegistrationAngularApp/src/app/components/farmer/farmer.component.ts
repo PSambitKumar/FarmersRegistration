@@ -13,6 +13,7 @@ import {ResponseBean} from "../../beans/responseBean";
 import Swal from 'sweetalert2';
 import {Router} from "@angular/router";
 import {Relation} from "../../models/relation";
+import {ViewRelativesComponent} from "../../modalComponents/view-relatives-modal/view-relatives.component";
 
 @Component({
   selector: 'app-farmer',
@@ -154,6 +155,27 @@ export class FarmerComponent implements OnInit{
         this.farmerService.editFarmerById(id).subscribe(data => {
           console.log(data);
           this.farmer = data;
+          // Adding Data to Farmer Bean
+          this.farmerBean.id = this.farmer.id;
+          this.farmerBean.name = this.farmer.name;
+          this.farmerBean.fathersName = this.farmer.fathersName;
+          this.farmerBean.age = this.farmer.age;
+          this.farmerBean.gender = this.farmer.gender;
+          this.farmerBean.accountNumber = this.farmer.bank.accountNumber;
+          this.farmerBean.ifscCode = this.farmer.bank.ifscCode;
+          this.farmerBean.bank = this.farmer.bank.bankName;
+          this.farmerBean.mobile = this.farmer.mobile;
+          this.farmerBean.relation = this.farmer.relation;
+          if (this.farmer.aadhar != null){
+            this.farmerBean.aadhar = this.farmer.aadhar.aadharId;
+          }
+          if (this.farmer.janAdhaar != null){
+            this.farmerBean.janAdhaar = this.farmer.janAdhaar.janadhaarId;
+          }
+          if (this.farmer.acknowledge != null){
+            this.farmerBean.acknowledge = this.farmer.acknowledge.acknowledgeId;
+          }
+
           this.addFarmer();
         })
       }
@@ -206,6 +228,12 @@ export class FarmerComponent implements OnInit{
 
   viewRelatives(relationList : Relation[], farmerName : any){
     alert("Relation Lists Are : " + JSON.stringify(relationList) + ", Farmer Name : " + farmerName);
+    const dialogRef = this.matDialog.open(ViewRelativesComponent, {
+      data : {
+        "relationList" : relationList,
+        "farmerName" : farmerName
+      }
+    });
   }
 
   // openModal(){
