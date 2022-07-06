@@ -14,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BankModalComponent } from './modalComponents/bank-modal/bank-modal.component';
 import { TestComponent } from './components/test/test.component';
 import { ViewRelativesComponent } from './modalComponents/view-relatives-modal/view-relatives.component';
+import {MatButtonModule} from "@angular/material/button";
+import { RelativeComponent } from './components/relative/relative.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { ViewRelativesComponent } from './modalComponents/view-relatives-modal/v
     HomeComponent,
     BankModalComponent,
     TestComponent,
-    ViewRelativesComponent
+    ViewRelativesComponent,
+    RelativeComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,7 @@ import { ViewRelativesComponent } from './modalComponents/view-relatives-modal/v
     FormsModule,//Added for Form Module
     DataTablesModule,//Added For Data Table
     FontAwesomeModule,//For Font Awesome
-    MatDialogModule, BrowserAnimationsModule,//For Modal
+    MatDialogModule, BrowserAnimationsModule, MatButtonModule,//For Modal
   ],
   providers: [],
   bootstrap: [AppComponent]

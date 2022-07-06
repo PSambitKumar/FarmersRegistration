@@ -11,12 +11,13 @@
 /*  width: 15%;*/
 /*}*/
 .btnCancel{
-  margin-right: 10px;
+  margin-right: 5px;
   margin-bottom: 12px;
   height: 35px;
   color: red;
   text-align: center;
   font-size: small;
+  border: 1px solid #edecec;
 }
 .mat-dialog-container{
   background: #f2f2f2;
