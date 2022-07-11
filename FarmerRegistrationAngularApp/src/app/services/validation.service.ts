@@ -200,7 +200,7 @@ export class ValidationService {
       console.log("Invalid Mobile Number!");
       $(inputId).removeClass("is-valid").addClass("is-invalid");
       $(inputId).css('border', '2px solid red');
-      $(alertId).text("Invalid Mobile Number!");
+      $(alertId).text("Invalid Mobile Number!").css('color','red');
       $(inputId).focus();
       return this.response;
     }else {

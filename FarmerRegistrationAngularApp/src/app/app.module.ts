@@ -16,6 +16,7 @@ import { TestComponent } from './components/test/test.component';
 import { ViewRelativesComponent } from './modalComponents/view-relatives-modal/view-relatives.component';
 import {MatButtonModule} from "@angular/material/button";
 import {AddRelativeComponent} from "./modalComponents/add-relative/add-relative.component";
+import { FarmerPortalRegistrationComponent } from './components/farmer-portal-registration/farmer-portal-registration.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {AddRelativeComponent} from "./modalComponents/add-relative/add-relative.
     BankModalComponent,
     TestComponent,
     ViewRelativesComponent,
-    AddRelativeComponent
+    AddRelativeComponent,
+    FarmerPortalRegistrationComponent
   ],
   imports: [
     BrowserModule,
