@@ -15,7 +15,7 @@ import { BankModalComponent } from './modalComponents/bank-modal/bank-modal.comp
 import { TestComponent } from './components/test/test.component';
 import { ViewRelativesComponent } from './modalComponents/view-relatives-modal/view-relatives.component';
 import {MatButtonModule} from "@angular/material/button";
-import { RelativeComponent } from './components/relative/relative.component';
+import {AddRelativeComponent} from "./modalComponents/add-relative/add-relative.component";
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { RelativeComponent } from './components/relative/relative.component';
     BankModalComponent,
     TestComponent,
     ViewRelativesComponent,
-    RelativeComponent
+    AddRelativeComponent
   ],
   imports: [
     BrowserModule,

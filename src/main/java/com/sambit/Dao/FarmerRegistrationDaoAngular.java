@@ -16,4 +16,5 @@ public interface FarmerRegistrationDaoAngular {
 	Farmer updateFarmer(Farmer farmer);
 	String deleteFarmerById(int id);
 	Farmer getFarmerById(int id);
+	Relation saveRelation(Relation relation);
 }

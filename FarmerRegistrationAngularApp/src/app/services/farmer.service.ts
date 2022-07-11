@@ -4,6 +4,7 @@ import {FarmerBean} from "../beans/farmerBean";
 import {Observable} from "rxjs";
 import {Farmer} from "../models/farmer";
 import {ResponseBean} from "../beans/responseBean";
+import {Relation} from "../models/relation";
 
 @Injectable({
   providedIn: 'root'
@@ -46,4 +47,7 @@ export class FarmerService {
     return this.httpClient.get<Farmer>(`${this.baseUrl + "/editFarmerById/"}` + id);
   }
 
+  saveRelationUsingFarmerId(relation : Relation, farmerId : any) : Observable<ResponseBean>{
+    return this.httpClient.post<ResponseBean>(`${this.baseUrl + "/saveRelationUsingFarmerId/"}` + farmerId, relation);
+  }
 }

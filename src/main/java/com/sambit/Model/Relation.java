@@ -25,15 +25,15 @@ public class Relation {
     @JoinColumn(name = "bankId")
     private Bank bank;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "janAdhaarId")
     private Janadhaar janAdhaar;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "ackId")
     private Acknowledge acknowledge;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "adhaarId")
     private Aadhar aadhar;
 

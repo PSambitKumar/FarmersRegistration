@@ -226,12 +226,14 @@ export class FarmerComponent implements OnInit{
     });
   }
 
-  viewRelatives(relationList : Relation[], farmerName : any){
+  viewRelatives(farmer : Farmer, relationList : Relation[], farmerName : any, farmerId : any){
     // alert("Relation Lists Are : " + JSON.stringify(relationList) + ", Farmer Name : " + farmerName);
     const dialogRef = this.matDialog.open(ViewRelativesComponent, {
       data : {
+        "farmer" : farmer,
         "relationList" : relationList,
-        "farmerName" : farmerName
+        "farmerName" : farmerName,
+        "farmerId" : farmerId
       }
     });
 

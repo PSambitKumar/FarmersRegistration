@@ -88,4 +88,11 @@ public class FarmerRegistrationDaoImplAngular implements FarmerRegistrationDaoAn
 	public Farmer getFarmerById(int id) {
 		return entityManager.find(Farmer.class, id);
 	}
+
+	@Transactional
+	@Override
+	public Relation saveRelation(Relation relation) {
+		entityManager.persist(relation);
+		return relation;
+	}
 }

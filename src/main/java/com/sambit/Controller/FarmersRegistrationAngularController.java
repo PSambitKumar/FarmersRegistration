@@ -127,4 +127,17 @@ public class FarmersRegistrationAngularController {
         return ResponseEntity.ok(farmer);
     }
 
+    @PostMapping(value = "saveRelationUsingFarmerId/{farmerId}")
+    public ResponseEntity<ResponseBean> saveRelationUsingFarmerId(@PathVariable("farmerId")int farmerId, @RequestBody Relation relation, ResponseBean responseBean){
+        System.out.println("Inside Save Relation-------------->>");
+        System.out.println("Farmer Id : " + farmerId + ",\n Relation Data : " + relation);
+        Farmer farmer = mainServiceAngular.saveRelationUsingFarmerId(farmerId, relation);
+        if (farmer.getId() == farmerId){
+            responseBean.setStatus("Success");
+        }else {
+            responseBean.setStatus("Fail");
+        }
+        return ResponseEntity.ok(responseBean);
+    }
+
 }

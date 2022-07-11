@@ -146,4 +146,17 @@ public class MainServiceImplAngular implements MainServiceAngular {
 	public Farmer getFarmerById(int id) {
 		return farmerRegistrationDaoAngular.getFarmerById(id);
 	}
+
+	@Override
+	public Farmer saveRelationUsingFarmerId(int farmerId, Relation relation) {
+		Farmer farmer = farmerRegistrationDaoAngular.getFarmerById(farmerId);
+		Bank bank = farmerRegistrationDaoAngular.saveBank(relation.getBank());
+		relation.setBank(bank);
+		Relation relation1 = farmerRegistrationDaoAngular.saveRelation(relation);
+		List<Relation> relationList = farmer.getRelationList();
+		relationList.add(relation1);
+		farmer.setRelationList(relationList);
+		System.out.println("Final Data For Save Farmer : " + farmer);
+		return farmerRegistrationDaoAngular.updateFarmer(farmer);
+	}
 }
