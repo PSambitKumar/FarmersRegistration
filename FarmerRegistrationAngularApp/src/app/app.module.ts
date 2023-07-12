@@ -9,7 +9,7 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {DataTablesModule} from "angular-datatables";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
-import {MatDialogModule} from "@angular/material/dialog";
+// import {MatDialogModule} from "@angular/material/dialog";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BankModalComponent } from './modalComponents/bank-modal/bank-modal.component';
 import { TestComponent } from './components/test/test.component';
@@ -17,6 +17,7 @@ import { ViewRelativesComponent } from './modalComponents/view-relatives-modal/v
 import {MatButtonModule} from "@angular/material/button";
 import {AddRelativeComponent} from "./modalComponents/add-relative/add-relative.component";
 import { FarmerPortalRegistrationComponent } from './components/farmer-portal-registration/farmer-portal-registration.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [

@@ -304,4 +304,31 @@ export class FarmerComponent implements OnInit{
     $('#modalSubscribe').show();
   }
 
+
+  // In First Component
+  // sendDataFromOneComponentToAnother(){
+  //   let request: any = {
+  //     id: id,
+  //     userId: this.user.userId,
+  //     stateCode: this.stateCode,
+  //     districtCode: this.districtCode,
+  //     txnPackageDetailId: txnPackageDetailId,
+  //     fromDate: (document.querySelector('input[name="fromDate"]') as HTMLInputElement)?.value,
+  //     toDate: (document.querySelector('input[name="toDate"]') as HTMLInputElement)?.value,
+  //     hospitalCode: (document.querySelector('#hospitalCode') as HTMLInputElement)?.value,
+  //     flag: (document.querySelector('#status') as HTMLSelectElement)?.value
+  //   }
+  //
+  //   const broadcastChannel = new BroadcastChannel('blockedClaimApproval');
+  //   broadcastChannel.postMessage(request);
+  //
+  //   this.router.navigate(['/application/SecondComponent']);
+  // }
+
+  // In Second Component
+  // receiveDataFromOneComponentToAnother(){
+  //   const broadcastChannel = new BroadcastChannel('blockedClaimApproval');
+  //   broadcastChannel.onmessage = (event) => {
+  //     console.log(event.data);
+  //   }
 }
